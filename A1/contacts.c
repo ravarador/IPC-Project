@@ -1,9 +1,9 @@
 /* -------------------------------------------
-Name:
-Student number:
-Email:
-Section:
-Date:
+Name: Jexequiel Ravni Arador
+Student number: 127168219
+Email: jrarador@myseneca.ca
+Section: NBB
+Date: 07/07/2021
 ----------------------------------------------
 Assignment: 1
 Milestone:  4
@@ -28,7 +28,7 @@ void getName(struct Name *name) {
     scanf("%30[^\n]%*c", name->firstName);
 
     printf("Do you want to enter a middle initial(s)? (y or n): ");
-    scanf("%s%*c", &yesNo);
+    scanf("%c%*c", &yesNo); //scanf("%s%*c", &yesNo); to scanf("%c%*c", &yesNo);
 
     if (yesNo == 'y' || yesNo == 'Y') {
         printf("Please enter the contact's middle initial(s): ");
@@ -54,7 +54,7 @@ void getAddress(struct Address *address)
     printf("Do you want to enter an apartment number? (y or n): ");
     scanf("%c%*c", &yesNo);
 
-    if (yesNo == "y" || yesNo == "Y") {
+    if (yesNo == 'y' || yesNo == 'Y') { //if (yesNo == "y" || yesNo == "Y") { to if (yesNo == 'y' || yesNo == 'Y') {
         do {
             printf("Please enter the contact's apartment number: ");
             scanf("%d%*c", &address->apartmentNumber);
@@ -83,7 +83,7 @@ void getNumbers(struct Numbers *numbers)
     printf("Do you want to enter a home phone number? (y or n): ");
     scanf("%c%*c", &yesNo);
 
-    if (yesNo == 'y' && yesNo == 'Y') {
+    if (yesNo == 'y' || yesNo == 'Y') { // if (yesNo == 'y' && yesNo == 'Y') { to  if (yesNo == 'y' || yesNo == 'Y') {
         printf("Please enter the contact's home phone number: ");
         scanf("%10[^\n]%*c", numbers->home);
     }

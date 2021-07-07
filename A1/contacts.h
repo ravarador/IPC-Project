@@ -1,9 +1,9 @@
 /* -------------------------------------------
-Name:
-Student number:
-Email:
-Section:
-Date:
+Name: Jexequiel Ravni Arador
+Student number: 127168219
+Email: jrarador@myseneca.ca
+Section: NBB
+Date: 07/07/2021
 ----------------------------------------------
 Assignment: 1
 Milestone:  4
@@ -12,7 +12,7 @@ Milestone:  4
 // Structure type Name declaration (Milestone 1)
 struct Name {
     char firstName[31];
-    char middleInitial[5];
+    char middleInitial[7]; //char middleInitial[5]; to char middleInitial[7];
     char lastName[36];
 };
 
