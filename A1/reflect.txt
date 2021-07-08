@@ -2,7 +2,7 @@ Name: Jexequiel Ravni Arador
 Student number: 127168219
 Email: jrarador@myseneca.ca
 Section: NBB
-Date: 07/07/2021
+Date: 07/08/2021
 
 1. The first bug I encountered and fixed was after getting the last name. The program returned a run-time error with the description "Run-Time Check Failure #2 - Stack around the variable 'yesNo' was corrupted.". The probable cause of error was stated in the description so I analyzed and found that the format specifier in the scanf for yesNo is using a type string (%s) instead of the expected type character (%c). To fix the bug, I used "%c" instead of "%s" in the format specifier of scanf because too much data is written into the character variable if we used a string specifier for a character variable.
 Bug code: scanf("%s%*c", &yesNo);
@@ -23,27 +23,51 @@ Bug code:  char middleInitial[5];
 Fixed code: char middleInitial[7];
 Extra source of information: https://www.tutorialspoint.com/c_standard_library/c_function_scanf.htm
 
+The next extra bugs are caught after intentionally trying to break the system by entering a value that has a different data type.
+The fifth and sixth bugs I encountered was after trying a different set of data inputs. When I input a non integer value for contact's street number and apartment number, the program will go into an endless loop. Hence, the solution was to remove the code from a loop then create a function that serves as validation for integer type input.
+Bug code: 
+do {
+        printf("Please enter the contact's street number: ");
+        scanf("%d%*c", &address->streetNumber);
+    } while (address->streetNumber < 1);
+and
+do {
+            printf("Please enter the contact's apartment number: ");
+            scanf("%d%*c", &address->apartmentNumber);
+        } while (address->apartmentNumber < 1);
+Extra source of information: https://stackoverflow.com/questions/41145908/how-to-stop-user-entering-char-as-int-input-in-c
+
 2. Structures are stored sequentially in memory. In Contact struct, member name will always precede member address, and member address will always precede member numbers.
 To show how Contact struct looks in memory:
 struct Contact {
-    name {
-        firstName,
-        middleInitial,
-        lastName
+    struct name {
+        char firstName[],
+        char middleInitial[],
+        char lastName[]
     },
-    address {
-        streetNumber,
-        street,
-        apartmentNumber,
-        postalCode,
-        city
+    struct address {
+        int streetNumber,
+        char street[],
+        int apartmentNumber,
+        char postalCode[],
+        char city[]
     },
-    numbers {
-        cell,
-        home,
-        business
+    struct numbers {
+        char cell[],
+        char home[],
+        char business[]
     }
 }
+
+In table view: //Please make the font smaller so that the table will be displayed properly.
+..............................................................................................................................................................................................
+|                                                                                  struct Contact                                                                                            |
+..............................................................................................................................................................................................
+|            struct name                                  |                       struct address                                                 |             struct numbers                | 
+..............................................................................................................................................................................................
+| char firstName[], char middleInitial[], char lastName[] | int streetNumber, char street[], int apartmentNumber, char postalCode[], char city[] | char cell[], char home[], char business[] |
+..............................................................................................................................................................................................
+
 Extra source of information: https://en.wikipedia.org/wiki/Data_structure_alignment
 
 3. The repeated code in contacts.c is the code block inside the conditional statement for yesNo. To make the code cleaner and shorter, I will create a function specifically for displaying and input of integer.
@@ -64,9 +88,8 @@ getPhoneNumber("business phone", yesNo, &numbers->business); //This will be for 
 To explain more about the getPhoneNumber function, it will have the following parameters: a string for the typeOfPhone (this will be used for the display), a character yesNo (this will be used for the conditional statement), and a pointer address of type character (this will be used for assigning a value in that address). First, number is initialized to zero then a conditional statement will check if the yesNo input is Y or y. If it is true, it will go inside the code block, ask user for the number then store that number into the 'destination' address. If the condition is false, it will skip the code block of the condition and end the function.
 The getPhoneNumber function will not return anything. 
 
-
 4. "%*c" in scanf, means "read and ignore a character". An example is the "%30[^\n]%*c" specifier in the scanf of firstName. "%30[^\n]%*c" means it reads up to 30 characters ("%30") except ("[^\n]") newline character then reads but does not store the next character after [^\n] (%*c). The reason why "%*c" is used in some specifiers in the code is because some characters (like newline) must be read but cannot be stored to avoid bugs.
 Extra source of information: https://www.quora.com/What-does-*c-mean-in-C-C++-programming, https://stackoverflow.com/questions/11542010/c-in-scanf-what-does-it-mean
 
-5. “%[^\n]” is used in scanf to read all except newline (^\n) while %s in scanf stops searching at the first whitespace character found. When mixed together, there will be conflict between "%s" and “%[^\n]” since newline (a whitespace character) will not be read hence searching will not stop as expected.
+5. “%[^\n]” is used in scanf to read all except newline (^\n) character and stop reading until newline is found while "%s" in scanf stops searching at the first whitespace character found. When mixed together, there will be conflict between "%s" and “%[^\n]” since newline (a whitespace character) will not be read hence searching will not stop as expected.
 Extra source of information: http://www.cplusplus.com/reference/cstdio/scanf/, https://stackoverflow.com/questions/30065675/what-does-scanf-nc-mean
