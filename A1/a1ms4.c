@@ -1,9 +1,9 @@
 /* -------------------------------------------
-Name:
-Student number:
-Email:
-Section:
-Date:
+Name: Jexequiel Ravni Arador
+Student number: 127168219
+Email: jrarador@myseneca.ca
+Section: NBB
+Date: 07/07/2021
 ----------------------------------------------
 Assignment: 1
 Milestone:  4
