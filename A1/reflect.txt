@@ -4,12 +4,12 @@ Email: jrarador@myseneca.ca
 Section: NBB
 Date: 07/07/2021
 
-1. The first bug I encountered and fixed was after getting the last name. The program returned a run-time error with the description "Run-Time Check Failure #2 - Stack around the variable 'yesNo' was corrupted.". The error was stated in the description so I analyzed and found that the format specifier in the scanf for yesNo is using a type string (%s) instead of the expected type character (%c). To fix the bug, I used "%c" instead of "%s" in the format specifier of scanf because too much data is written into the character variable if we used a string specifier for a character variable.
+1. The first bug I encountered and fixed was after getting the last name. The program returned a run-time error with the description "Run-Time Check Failure #2 - Stack around the variable 'yesNo' was corrupted.". The probable cause of error was stated in the description so I analyzed and found that the format specifier in the scanf for yesNo is using a type string (%s) instead of the expected type character (%c). To fix the bug, I used "%c" instead of "%s" in the format specifier of scanf because too much data is written into the character variable if we used a string specifier for a character variable.
 Bug code: scanf("%s%*c", &yesNo);
 Fixed code: scanf("%c%*c", &yesNo);
 Extra source of information: https://stackoverflow.com/questions/25516740/run-time-check-failure-2-stack-around-the-variable-foo-was-corrupted
 
-The second bug I encountered and fixed was after the input of apartment number inquiry. The program was not showing "Please enter contact's apartment number: " even after inputting 'y' on the inquiry. I checked the code and found out that in the conditional statement (yesNo == "y" || yesNo == "Y"), double quotation marks were used instead of single quotations. The reason why it does not work with double quotations is because the value of yesNo is compared with the base address of the string literal inside the double quotations. To fix this, single quotation marks should be used.
+The second bug I encountered and fixed was after the input of apartment number inquiry. The program was not showing "Please enter contact's apartment number: " even after inputting 'y' on the inquiry. I checked the code and found out that in the conditional statement (yesNo == "y" || yesNo == "Y"), double quotation marks were used instead of single quotations. The reason why it does not work with double quotations is because the value of yesNo is compared with the base address of the string literal inside the double quotations. To fix this, single quotation marks were used.
 Bug code: if (yesNo == "y" || yesNo == "Y")
 Fixed code: if (yesNo == 'y' || yesNo == 'Y')
 Extra source of information: https://stackoverflow.com/questions/31406415/how-does-c-compare-character-variable-against-string
@@ -46,7 +46,6 @@ struct Contact {
 }
 Extra source of information: https://en.wikipedia.org/wiki/Data_structure_alignment
 
-
 3. The repeated code in contacts.c is the code block inside the conditional statement for yesNo. To make the code cleaner and shorter, I will create a function specifically for displaying and input of integer.
 The function will be like this: 
 void getPhoneNumber(const char typeOfPhone[], char yesNo, char *destination) {
@@ -66,7 +65,8 @@ To explain more about the getPhoneNumber function, it will have the following pa
 The getPhoneNumber function will not return anything. 
 
 
-4. "%*c" in scanf, means "read and ignore a character". An example is the "%30[^\n]%*c" specifier in the scanf of firstName. "%30[^\n]%*c" means it reads up to 30 characters ("%30") except ("[^\n]") newline character then reads but does not store the last character (%*c). The reason why "%*c" is used in some specifiers in the code is because some characters (like newline) must be ignored to avoid bugs.
+4. "%*c" in scanf, means "read and ignore a character". An example is the "%30[^\n]%*c" specifier in the scanf of firstName. "%30[^\n]%*c" means it reads up to 30 characters ("%30") except ("[^\n]") newline character then reads but does not store the next character after [^\n] (%*c). The reason why "%*c" is used in some specifiers in the code is because some characters (like newline) must be read but cannot be stored to avoid bugs.
 Extra source of information: https://www.quora.com/What-does-*c-mean-in-C-C++-programming, https://stackoverflow.com/questions/11542010/c-in-scanf-what-does-it-mean
 
-5. “%[^\n]” is used in scanf to read all except newline (^\n). 
+5. “%[^\n]” is used in scanf to read all except newline (^\n) while %s in scanf stops searching at the first whitespace character found. When mixed together, there will be conflict between "%s" and “%[^\n]” since newline (a whitespace character) will not be read hence searching will not stop as expected.
+Extra source of information: http://www.cplusplus.com/reference/cstdio/scanf/, https://stackoverflow.com/questions/30065675/what-does-scanf-nc-mean
