@@ -44,7 +44,8 @@ void clearKeyboard(void)
 
 // pause: Empty function definition goes here:
 void pause(void) {
-
+    printf(">(Press Enter to continue)<");
+    clearKeyboard();
 };
 
 
