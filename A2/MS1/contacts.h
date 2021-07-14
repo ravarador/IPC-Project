@@ -15,17 +15,15 @@
 //--------------------------------
 
 // Structure type Name declaration (Milestone 1)
-struct Name
-{
+struct Name {
     char firstName[31];
-    // char middleInitial[5]; // <- NO! Must accommodate 6 character + null terminator byte = 7
-    char middleInitial[7];
+    char middleInitial[7]; //char middleInitial[5]; to char middleInitial[7];// <- NO! Must accommodate 6 character + null terminator byte = 7
     char lastName[36];
 };
 
 // Structure type Address declaration (Milestone 1)
-struct Address
-{
+// Place your code here...
+struct Address {
     int streetNumber;
     char street[41];
     int apartmentNumber;
@@ -34,6 +32,7 @@ struct Address
 };
 
 // Structure type Numbers declaration (Milestone 1)
+// Place your code here...
 struct Numbers
 {
     char cell[11];
@@ -42,6 +41,7 @@ struct Numbers
 };
 
 // Structure type Contact declaration (Milestone 3)
+// Place your code here...
 struct Contact
 {
     struct Name name;
@@ -61,6 +61,8 @@ void getAddress(struct Address* address);
 
 // Get and store from standard input the values for Numbers
 void getNumbers(struct Numbers* numbers);
+
+void getContact(struct Contact* contact);
 
 // +-------------------------------------------------+
 // |    ====== Assignment 2 | Milestone 1 =======    |

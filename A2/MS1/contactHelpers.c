@@ -12,7 +12,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
-
+#include "contactHelpers.h"
 // This source file needs to "know about" the functions you prototyped
 //       in the contact helper header file.
 // HINT: Put the header file name in double quotes so the compiler knows
@@ -40,23 +40,36 @@ void clearKeyboard(void)
 }
 
 // pause: Empty function definition goes here:
+void pause(void) {
 
+};
 
 
 // getInt: Empty function definition goes here:
+int getInt(void) {
 
+};
 
 
 // getIntInRange: Empty function definition goes here:
+int getIntInRange(int min, int max) {
 
+};
 
 
 // yes: Empty function definition goes here:
+int yes(void) {
 
+};
 
 
 // menu: Empty function definition goes here:
+int menu(void) {
 
+};
 
 
 // contactManagerSystem: Empty function definition goes here:
+void contactManagerSystem(void) {
+
+};
