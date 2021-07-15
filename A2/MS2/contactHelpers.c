@@ -59,14 +59,14 @@ int getInt(void) {
         if (validateInput == 2) {
             if (NL != '\n') {
                 clearKeyboard();
-                printf("*** INVALID INTEGER *** <Please enter an integer>:");
+                printf("*** INVALID INTEGER *** <Please enter an integer>: ");
             }
             else {
                 return intValue;
             }
         }
         else {
-            printf("*** INVALID INTEGER *** <Please enter an integer>:");
+            printf("*** INVALID INTEGER *** <Please enter an integer>: ");
             clearKeyboard();
         }
     }     while (NL != '\n');
@@ -75,7 +75,14 @@ int getInt(void) {
 
 // getIntInRange: Empty function definition goes here:
 int getIntInRange(int min, int max) {
+    int intValue = getInt();
 
+    if (intValue > min && intValue < max) {
+        return intValue;
+    }
+    else {
+        printf("*** OUT OF RANGE *** <Enter a number between %d and %d>: ", min, max);
+    }
 };
 
 
