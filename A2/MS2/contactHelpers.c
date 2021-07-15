@@ -57,12 +57,12 @@ int getInt(void) {
         int validateInput = scanf("%d%c", &intValue, &NL);
 
         if (validateInput == 2) {
-            if (NL == '\n') {
-                return intValue;
+            if (NL != '\n') {
+                clearKeyboard();
+                printf("*** INVALID INTEGER *** <Please enter an integer>:");
             }
             else {
-                printf("*** INVALID INTEGER *** <Please enter an integer>:");
-                clearKeyboard();
+                return intValue;
             }
         }
         else {
