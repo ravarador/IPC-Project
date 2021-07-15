@@ -58,7 +58,6 @@ int getInt(void) {
 
         if (validateInput == 2) {
             if (NL == '\n') {
-                printf("SUCCESSFUL: intValue (%d), charInput(%c)", intValue, NL);
                 return intValue;
             }
             else {
