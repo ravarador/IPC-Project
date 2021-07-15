@@ -92,23 +92,23 @@ int getIntInRange(int min, int max) {
 
 // yes: Empty function definition goes here:
 int yes(void) {
-    //char charInput; char charInput2;
+    char charInput; char charInput2;
 
-    //do {
-    //    scanf("%c%c", &charInput, &charInput2);
+    do {
+        scanf("%c%c", &charInput, &charInput2);
 
-    //    if (charInput2 != '\n' || (charInput != 'y' && charInput != 'Y' && charInput != 'n' && charInput != 'N')) {
-    //        clearKeyboard();
-    //        printf("*** INVALID ENTRY *** <Only (Y)es or (N)o are acceptable>: ");
-    //    }
+        if (charInput2 != '\n' || (charInput != 'y' && charInput != 'Y' && charInput != 'n' && charInput != 'N')) {
+            clearKeyboard();
+            printf("*** INVALID ENTRY *** <Only (Y)es or (N)o are acceptable>: ");
+        }
 
-    //} while (charInput2 != '\n' || (charInput != 'y' && charInput != 'Y' && charInput != 'n' && charInput != 'N'));
+    } while (charInput2 != '\n' || (charInput != 'y' && charInput != 'Y' && charInput != 'n' && charInput != 'N'));
 
-    //if (charInput == 'y' || charInput == 'Y') {
-    //    return 1;
-    //}
-    //
-    //return 0;
+    if (charInput == 'y' || charInput == 'Y') {
+        return 1;
+    }
+    
+    return 0;
 };
 
 // menu: Empty function definition goes here:
