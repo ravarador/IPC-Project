@@ -51,7 +51,26 @@ void pause(void) {
 
 // getInt: Empty function definition goes here:
 int getInt(void) {
+    char NL;
+    int intValue;
+    do {
+        int validateInput = scanf("%d%c", &intValue, &NL);
 
+        if (validateInput == 2) {
+            if (NL == '\n') {
+                printf("SUCCESSFUL: intValue (%d), charInput(%c)", intValue, NL);
+                return intValue;
+            }
+            else {
+                printf("*** INVALID INTEGER *** <Please enter an integer>:");
+                clearKeyboard();
+            }
+        }
+        else {
+            printf("*** INVALID INTEGER *** <Please enter an integer>:");
+            clearKeyboard();
+        }
+    }     while (NL != '\n');
 };
 
 
