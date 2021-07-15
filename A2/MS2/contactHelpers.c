@@ -39,7 +39,7 @@
 // Clear the standard input buffer
 void clearKeyboard(void)
 {
-    while (getchar() != '\n')   ; // empty execution code block on purpose
+    while (getchar() != '\n'); // empty execution code block on purpose
 }
 
 // pause: Empty function definition goes here:
@@ -66,31 +66,50 @@ int getInt(void) {
             }
         }
         else {
-            printf("*** INVALID INTEGER *** <Please enter an integer>: ");
             clearKeyboard();
+            printf("*** INVALID INTEGER *** <Please enter an integer>: ");
         }
-    }     while (NL != '\n');
+    } while (NL != '\n');
 };
 
 
 // getIntInRange: Empty function definition goes here:
 int getIntInRange(int min, int max) {
-    int intValue = getInt();
+    int isValidated = 0;
+    do {
+        int intValue = getInt();
 
-    if (intValue > min && intValue < max) {
-        return intValue;
-    }
-    else {
-        printf("*** OUT OF RANGE *** <Enter a number between %d and %d>: ", min, max);
-    }
+        if (intValue >= min && intValue <= max) {
+            return intValue;
+        }
+        else {
+            printf("*** OUT OF RANGE *** <Enter a number between %d and %d>: ", min, max);
+        }
+    } while (!isValidated);
+    
 };
 
 
 // yes: Empty function definition goes here:
 int yes(void) {
+    //char charInput; char charInput2;
 
+    //do {
+    //    scanf("%c%c", &charInput, &charInput2);
+
+    //    if (charInput2 != '\n' || (charInput != 'y' && charInput != 'Y' && charInput != 'n' && charInput != 'N')) {
+    //        clearKeyboard();
+    //        printf("*** INVALID ENTRY *** <Only (Y)es or (N)o are acceptable>: ");
+    //    }
+
+    //} while (charInput2 != '\n' || (charInput != 'y' && charInput != 'Y' && charInput != 'n' && charInput != 'N'));
+
+    //if (charInput == 'y' || charInput == 'Y') {
+    //    return 1;
+    //}
+    //
+    //return 0;
 };
-
 
 // menu: Empty function definition goes here:
 int menu(void) {
