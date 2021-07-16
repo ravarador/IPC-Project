@@ -117,5 +117,7 @@ void getNumbers(struct Numbers* numbers)
 // getContact:
 // Define Empty function definition below:
 void getContact(struct Contact* contact) {
-
+    getName(&contact->name);
+    getAddress(&contact->address);
+    getNumbers(&contact->numbers);
 };
