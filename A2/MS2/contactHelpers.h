@@ -55,3 +55,6 @@ int menu(void);
 // contactManagerSystem:
 // Put function prototype below:
 void contactManagerSystem(void);
+
+//extra definitions
+int getIntPositive(char * err);

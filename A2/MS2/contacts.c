@@ -18,95 +18,80 @@
 // |        Milestone-2 specifications               | 
 // +-------------------------------------------------+
 #include "contacts.h"
+#include "contactHelpers.h"
 
 
 // getName:
 void getName(struct Name* name)
 {
-
-    char yesNo;
-
     printf("Please enter the contact's first name: ");
-    scanf("%30[^\n]%*c", name->firstName);
+    scanf("%30[^\n]", name->firstName);
+    clearKeyboard();
 
     printf("Do you want to enter a middle initial(s)? (y or n): ");
-    //scanf("%s%*c", &yesNo); //<--- Incorrect, not a c string, must be a char
-    scanf("%c%*c", &yesNo);
 
-    if (yesNo == 'y' || yesNo == 'Y')
+    if (yes())
     {
         printf("Please enter the contact's middle initial(s): ");
-        scanf("%6[^\n]%*c", name->middleInitial);
+        scanf("%6[^\n]", name->middleInitial);
+        clearKeyboard();
     }
 
     printf("Please enter the contact's last name: ");
-    scanf("%35[^\n]%*c", name->lastName);
+    scanf("%35[^\n]", name->lastName);
+    clearKeyboard();
 }
 
 // getAddress:
 void getAddress(struct Address* address)
 {
-    char yesNo;
-
-    do
-    {
-        printf("Please enter the contact's street number: ");
-        scanf("%d%*c", &address->streetNumber);
-    } while (address->streetNumber < 1);
+    printf("Please enter the contact's street number: ");
+    address->streetNumber = getIntPositive("*** INVALID STREET NUMBER *** <must be a positive number>: ");
 
     printf("Please enter the contact's street name: ");
-    scanf("%40[^\n]%*c", address->street);
+    scanf("%40[^\n]", address->street);
+    clearKeyboard();
 
     printf("Do you want to enter an apartment number? (y or n): ");
-    scanf("%c%*c", &yesNo);
 
-    if (yesNo == 'y' || yesNo == 'Y')
+    if (yes())
     {
-        do
-        {
-            printf("Please enter the contact's apartment number: ");
-            scanf("%d%*c", &address->apartmentNumber);
-        } while (address->apartmentNumber < 1);
+        printf("Please enter the contact's apartment number: ");
+        address->apartmentNumber = getIntPositive("***INVALID APARTMENT NUMBER ***<must be a positive number>: ");
     }
 
     printf("Please enter the contact's postal code: ");
-    scanf("%7[^\n]%*c", address->postalCode);
+    scanf("%7[^\n]", address->postalCode);
+    clearKeyboard();
 
     printf("Please enter the contact's city: ");
-    scanf("%40[^\n]%*c", address->city);
+    scanf("%40[^\n]", address->city);
+    clearKeyboard();
 }
 
 // getNumbers:
 void getNumbers(struct Numbers* numbers)
 {
-    char yesNo;
-
-    printf("Do you want to enter a cell phone number? (y or n): ");
-    scanf("%c%*c", &yesNo);
-
-    if (yesNo == 'y' || yesNo == 'Y')
-    {
-        printf("Please enter the contact's cell phone number: ");
-        scanf("%10[^\n]%*c", numbers->cell);
-    }
+    printf("Please enter the contact's cell phone number: ");
+    scanf("%10[^\n]", numbers->cell);
+    clearKeyboard();
 
     printf("Do you want to enter a home phone number? (y or n): ");
-    scanf("%c%*c", &yesNo);
 
-    //if (yesNo == 'y' && yesNo == 'Y') // <-- No! can't be both 'y' AND 'Y' (should be OR ||)
-    if (yesNo == 'y' || yesNo == 'Y')
+    if (yes())
     {
         printf("Please enter the contact's home phone number: ");
-        scanf("%10[^\n]%*c", numbers->home);
+        scanf("%10[^\n]", numbers->home);
+        clearKeyboard();
     }
 
     printf("Do you want to enter a business phone number? (y or n): ");
-    scanf("%c%*c", &yesNo);
 
-    if (yesNo == 'y' || yesNo == 'Y')
+    if (yes())
     {
         printf("Please enter the contact's business phone number: ");
-        scanf("%10[^\n]%*c", numbers->business);
+        scanf("%10[^\n]", numbers->business);
+        clearKeyboard();
     }
 }
 

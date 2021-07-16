@@ -186,3 +186,16 @@ void contactManagerSystem(void) {
 
     puts("Contact Management System: terminated");
 };
+
+
+//extra definitions
+int getIntPositive(char * err) {
+    int num = getInt();
+
+    while (num < 0) {
+        printf(err);
+        num = getInt();
+    }
+
+    return num;
+}
