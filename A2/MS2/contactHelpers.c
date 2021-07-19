@@ -1,9 +1,9 @@
 //==============================================
-// Name:           Full name here
-// Student Number: #########
-// Email:          userID@myseneca.ca
-// Section:        XXX
-// Date:           
+//Name: Jexequiel Ravni Arador
+//Student number : 127168219
+//Email : jrarador@myseneca.ca
+//Section : NBB
+//Date : July 19, 2021
 //==============================================
 // Assignment:     2
 // Milestone:      2
@@ -44,7 +44,7 @@ void clearKeyboard(void)
 
 // pause: Empty function definition goes here:
 void pause(void) {
-    printf(">(Press Enter to continue)<");
+    printf("(Press Enter to Continue)");
     clearKeyboard();
 };
 
@@ -70,6 +70,7 @@ int getInt(void) {
             printf("*** INVALID INTEGER *** <Please enter an integer>: ");
         }
     } while (NL != '\n');
+    return 0;
 };
 
 
@@ -86,7 +87,7 @@ int getIntInRange(int min, int max) {
             printf("*** OUT OF RANGE *** <Enter a number between %d and %d>: ", min, max);
         }
     } while (!isValidated);
-    
+    return 0;
 };
 
 
@@ -123,7 +124,7 @@ int menu(void) {
     puts("6. Sort contacts by cell phone number");
     puts("0. Exit");
     puts("");
-    puts("Select an option:> ");
+    printf("Select an option:> ");
     return getIntInRange(0, 6);
 };
 

@@ -1,9 +1,9 @@
 //==============================================
-// Name:           Full name here
-// Student Number: #########
-// Email:          userID@myseneca.ca
-// Section:        XXX
-// Date:           
+//Name: Jexequiel Ravni Arador
+//Student number : 127168219
+//Email : jrarador@myseneca.ca
+//Section : NBB
+//Date : July 19, 2021
 //==============================================
 // Assignment:     2
 // Milestone:      2
@@ -17,6 +17,7 @@
 // |        complete the definitions as per the      |
 // |        Milestone-2 specifications               | 
 // +-------------------------------------------------+
+#include <stdio.h>
 #include "contacts.h"
 #include "contactHelpers.h"
 
@@ -57,7 +58,7 @@ void getAddress(struct Address* address)
     if (yes())
     {
         printf("Please enter the contact's apartment number: ");
-        address->apartmentNumber = getIntPositive("***INVALID APARTMENT NUMBER ***<must be a positive number>: ");
+        address->apartmentNumber = getIntPositive("*** INVALID APARTMENT NUMBER *** <must be a positive number>: ");
     }
 
     printf("Please enter the contact's postal code: ");

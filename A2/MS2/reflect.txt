@@ -1,0 +1,13 @@
+Name: Jexequiel Ravni Arador
+Student number: 127168219
+Email: jrarador@myseneca.ca
+Section: NBB
+Date: July 19, 2021
+
+Assignment # 2
+Milestone # 2
+
+1. A function is a reusable group of code that performs a specific task. Functions are needed in all programming languages to make their code more manageable and easier to maintain.
+Some examples of function in Assignment # 2 Milestone # 2 are the "getInt" function, the "yes" function, and the "clearKeyboard" function. The "getInt" function ask the user for an integer input then validates it if it is an integer. The "yes" function ask the user to enter a yes or no input then validates it if it correct. The "clearKeyboard" function clears the buffer. All these functions are used multiple times throughout the program. Instead of writing the same code again and again, all we need to do is just call the function.
+
+To make a code more maintainable, functions should be grouped in different modules depending on what output they provide. The "helper" functions are separated from the "contacts" module because the "helper" functions are not related to the "contacts" module. They are only used as tools for the "contacts" module. An example of a helper is the "getInt" function. It is not related to any "contacts" module function, but it is used by a "contacts" module function for getting and validating integers. To summarize, helper functions are used as tools for other functions.
