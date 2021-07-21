@@ -200,7 +200,7 @@ void getTenDigitPhone(char phoneNum[])
 
     while (needInput == 1) 
     {
-        scanf("%10s", phoneNum);
+        int numInput = getIntPositive("Enter a 10-digit phone number: ");
         clearKeyboard();
 
         // (String Length Function: validate entry of 10 characters)
@@ -224,7 +224,7 @@ int findContactIndex(const struct Contact contacts[], int size, const char cellN
 
 // displayContactHeader
 // Put empty function definition below:
-void displayContactHeader(void); {
+void displayContactHeader(void) {
 
 }
 
