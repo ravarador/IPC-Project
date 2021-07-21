@@ -9,6 +9,8 @@
 // Milestone:      4
 //==============================================
 
+#define MAXCONTACTS 5
+
 // +-------------------------------------------------+
 // | NOTE:  Copy/Paste your Assignment-2 Milestone-3 |
 // |        contents here...                         |
