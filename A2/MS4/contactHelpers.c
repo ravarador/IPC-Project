@@ -243,7 +243,8 @@ void displayContactHeader(void) {
 // displayContactFooter
 // Put empty function definition below:
 void displayContactFooter(int count) {
-
+    printf("+-----------------------------------------------------------------------------+\n");
+    printf("Total contacts: %d\n\n", count);
 }
 
 
