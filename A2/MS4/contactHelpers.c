@@ -11,6 +11,7 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <string.h> 
 #include "contactHelpers.h"
 // +-------------------------------------------------+
 // | NOTE:  Copy/Paste your Assignment-2 Milestone-3 |
@@ -206,6 +207,7 @@ void getTenDigitPhone(char phoneNum[])
         // (String Length Function: validate entry of 10 characters)
         if (strlen(phoneNum) == 10)
         {
+            phoneNum = numInput;
             needInput = 0;
         }
         else
@@ -218,6 +220,13 @@ void getTenDigitPhone(char phoneNum[])
 // findContactIndex:
 int findContactIndex(const struct Contact contacts[], int size, const char cellNum[])
 {
+    int i;
+    for (i = 0; i < size; i++) {
+        if (strcmp(contacts[i], cellNum) == 0) {
+            return i;
+        }
+    }
+
     return -1;
 }
 
