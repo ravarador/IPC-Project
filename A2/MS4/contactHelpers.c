@@ -234,7 +234,9 @@ int findContactIndex(const struct Contact contacts[], int size, const char cellN
 // displayContactHeader
 // Put empty function definition below:
 void displayContactHeader(void) {
-
+    printf("+-----------------------------------------------------------------------------+\n");
+    printf("|                              Contacts Listing                               |\n");
+    printf("+-----------------------------------------------------------------------------+\n");
 }
 
 
