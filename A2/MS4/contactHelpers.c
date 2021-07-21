@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <string.h> 
 #include "contactHelpers.h"
+#include "contacts.h"
 // +-------------------------------------------------+
 // | NOTE:  Copy/Paste your Assignment-2 Milestone-3 |
 // |        contents below...                        |
@@ -222,7 +223,7 @@ int findContactIndex(const struct Contact contacts[], int size, const char cellN
 {
     int i;
     for (i = 0; i < size; i++) {
-        if (strcmp(contacts[i], cellNum) == 0) {
+        if (strcmp(contacts[i].numbers.cell, cellNum) == 0) {
             return i;
         }
     }
@@ -251,7 +252,17 @@ void displayContactFooter(int count) {
 // displayContact:
 // Put empty function definition below:
 void displayContact(const struct Contact* contact) {
+    printf(" %s ", contact->name.firstName);
+    printf(" %s ", contact->name.middleInitial);
+    printf(" %s\n", contact->name.lastName);
 
+    printf("    C: %-10s    H: %-10s    B: %-10s\n", contact->numbers.cell, 
+        contact->numbers.home, 
+        contact->numbers.business);
+
+    printf("       %d %s, ", contact->address.streetNumber, contact->address.street);
+    printf("Apt# %d, ", contact->address.apartmentNumber > 0 ? contact->address.apartmentNumber : NULL);
+    printf("%s, %s\n", contact->address.city, contact->address.postalCode);
 }
 
 
