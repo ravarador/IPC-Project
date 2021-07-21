@@ -269,7 +269,14 @@ void displayContact(const struct Contact* contact) {
 // displayContacts:
 // Put empty function definition below:
 void displayContacts(const struct Contact contacts[], int size) {
+    displayContactHeader();
+    
+    int i;
+    for (i = 0; i < size; i++) {
+        displayContact(&contacts[i]);
+    }
 
+    displayContactFooter(size);
 }
 
 
