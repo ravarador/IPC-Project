@@ -224,43 +224,62 @@ int findContactIndex(const struct Contact contacts[], int size, const char cellN
 
 // displayContactHeader
 // Put empty function definition below:
+void displayContactHeader(void); {
 
+}
 
 
 // displayContactFooter
 // Put empty function definition below:
+void displayContactFooter(int count) {
 
+}
 
 
 // displayContact:
 // Put empty function definition below:
+void displayContact(const struct Contact* contact) {
 
+}
 
 
 // displayContacts:
 // Put empty function definition below:
+void displayContacts(const struct Contact contacts[], int size) {
 
+}
 
 
 // searchContacts:
 // Put empty function definition below:
+void searchContacts(const struct Contact contacts[], int size) {
 
+}
 
 
 // addContact:
 // Put empty function definition below:
+void addContact(struct Contact contacts[], int size) {
 
+}
 
 
 // updateContact:
 // Put empty function definition below:
+void updateContact(struct Contact contacts[], int size) {
 
+}
 
 
 // deleteContact:
 // Put empty function definition below:
+void deleteContact(struct Contact contacts[], int size) {
 
+}
 
 
 // sortContacts:
 // Put empty function definition below:
+void sortContacts(struct Contact contacts[], int size) {
+
+}
