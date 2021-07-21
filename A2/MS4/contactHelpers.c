@@ -283,7 +283,20 @@ void displayContacts(const struct Contact contacts[], int size) {
 // searchContacts:
 // Put empty function definition below:
 void searchContacts(const struct Contact contacts[], int size) {
+    char phoneNumber[11];
+    int contactIndex = -1;
 
+    printf("Enter the cell number for the contact: ");
+    getTenDigitPhone(phoneNumber);
+
+    contactIndex = findContactIndex(contacts, size, phoneNumber);
+
+    if (contactIndex > -1) {
+        displayContact(&contacts[contactIndex]);
+    }
+    else {
+        printf("*** Contact NOT FOUND ***\n");
+    }
 }
 
 
