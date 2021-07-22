@@ -129,25 +129,25 @@ void contactManagerSystem(void) {
             break;
 
         case 1:
-            displayContacts(&contacts, MAXCONTACTS);
+            displayContacts(contacts, MAXCONTACTS);
             pause();
             puts("");
             break;
 
         case 2:
-            addContact(&contacts, MAXCONTACTS);
+            addContact(contacts, MAXCONTACTS);
             pause();
             puts("");
             break;
 
         case 3:
-            updateContact(&contacts, MAXCONTACTS);
+            updateContact(contacts, MAXCONTACTS);
             pause();
             puts("");
             break;
 
         case 4:
-            puts("\n<<< Feature 4 is unavailable >>>\n");
+            deleteContact(contacts, MAXCONTACTS);
             pause();
             puts("");
             break;
@@ -359,7 +359,7 @@ void updateContact(struct Contact contacts[], int size) {
             getNumbers(&contacts[indexToUpdate].numbers);
         }
 
-        printf("--- Contact Updated! ---");
+        printf("--- Contact Updated! ---\n");
     }
     else {
         printf("*** Contact NOT FOUND ***\n");
@@ -370,7 +370,29 @@ void updateContact(struct Contact contacts[], int size) {
 // deleteContact:
 // Put empty function definition below:
 void deleteContact(struct Contact contacts[], int size) {
+    int indexToDelete = -1;
+    char contactNumber[11];
 
+    getTenDigitPhone(contactNumber);
+
+    indexToDelete = findContactIndex(contacts, size, contactNumber);
+
+    if (indexToDelete != -1) {
+        printf("\nContact found:\n");
+
+        displayContact(&contacts[indexToDelete]);
+
+        printf("CONFIRM: Delete this contact? (y or n): ");
+
+        if (yes()) {
+            contacts[indexToDelete].numbers.cell[0] = '\0';
+        }
+
+        printf("--- Contact Deleted! ---\n");
+    }
+    else {
+        printf("*** Contact NOT FOUND ***\n");
+    }
 }
 
 
