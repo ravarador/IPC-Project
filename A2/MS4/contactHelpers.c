@@ -129,19 +129,19 @@ void contactManagerSystem(void) {
             break;
 
         case 1:
-            displayContacts(contacts, MAXCONTACTS);
+            displayContacts(&contacts, MAXCONTACTS);
             pause();
             puts("");
             break;
 
         case 2:
-            addContact(contacts, MAXCONTACTS);
+            addContact(&contacts, MAXCONTACTS);
             pause();
             puts("");
             break;
 
         case 3:
-            puts("\n<<< Feature 3 is unavailable >>>\n");
+            updateContact(&contacts, MAXCONTACTS);
             pause();
             puts("");
             break;
@@ -204,20 +204,18 @@ int getIntPositive(char* err) {
 void getTenDigitPhone(char phoneNum[])
 {
     int needInput = 1;
+    printf("Enter a 10-digit phone number: ");
 
-    while (needInput == 1)
-    {
-        int numInput = getIntPositive("Enter a 10-digit phone number: ");
+    while (needInput == 1) {
+        scanf("%10s", phoneNum);
         clearKeyboard();
 
         // (String Length Function: validate entry of 10 characters)
-        if (strlen(phoneNum) == 10)
-        {
-            phoneNum = numInput;
+        if (strlen(phoneNum) == 10) {
+            
             needInput = 0;
         }
-        else
-        {
+        else {
             printf("Enter a 10-digit phone number: ");
         }
     }
@@ -266,7 +264,9 @@ void displayContact(const struct Contact* contact) {
         contact->numbers.business);
 
     printf("       %d %s, ", contact->address.streetNumber, contact->address.street);
-    printf("Apt# %d, ", contact->address.apartmentNumber > 0 ? contact->address.apartmentNumber : NULL);
+
+    contact->address.apartmentNumber > 0 ? printf("Apt# %d, ", contact->address.apartmentNumber) : //do nothing ;
+
     printf("%s, %s\n", contact->address.city, contact->address.postalCode);
 }
 
@@ -329,7 +329,41 @@ void addContact(struct Contact contacts[], int size) {
 // updateContact:
 // Put empty function definition below:
 void updateContact(struct Contact contacts[], int size) {
+    int indexToUpdate = -1;
+    char contactNumber[11];
 
+    getTenDigitPhone(contactNumber);
+
+    indexToUpdate = findContactIndex(contacts, size, contactNumber);
+
+    if (indexToUpdate != -1) {
+        printf("\nContact found:\n");
+
+        displayContact(&contacts[indexToUpdate]);
+
+        printf("Do you want to update the name? (y or n): ");
+
+        if (yes()) {
+            getName(&contacts[indexToUpdate].name);
+        }
+
+        printf("Do you want to update the address? (y or n): ");
+
+        if (yes()) {
+            getAddress(&contacts[indexToUpdate].address);
+        }
+
+        printf("Do you want to update the numbers? (y or n): ");
+
+        if (yes()) {
+            getNumbers(&contacts[indexToUpdate].numbers);
+        }
+
+        printf("--- Contact Updated! ---");
+    }
+    else {
+        printf("*** Contact NOT FOUND ***\n");
+    }
 }
 
 
