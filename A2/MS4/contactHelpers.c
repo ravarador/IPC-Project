@@ -135,7 +135,7 @@ void contactManagerSystem(void) {
             break;
 
         case 2:
-            puts("\n<<< Feature 2 is unavailable >>>\n");
+            addContact(contacts, MAXCONTACTS);
             pause();
             puts("");
             break;
@@ -313,7 +313,16 @@ void searchContacts(const struct Contact contacts[], int size) {
 // addContact:
 // Put empty function definition below:
 void addContact(struct Contact contacts[], int size) {
+    int indexEmpty = -1;
+    indexEmpty = findContactIndex(contacts, size, "");
 
+    if (indexEmpty != -1) {
+        getContact(&contacts[indexEmpty]);
+        printf("--- New contact added! ---\n");
+    }
+    else {
+        printf("*** ERROR: The contact list is full! ***\n");
+    }
 }
 
 
