@@ -129,7 +129,7 @@ void contactManagerSystem(void) {
             break;
 
         case 1:
-            puts("\n<<< Feature 1 is unavailable >>>\n");
+            displayContacts(contacts, MAXCONTACTS);
             pause();
             puts("");
             break;
@@ -274,14 +274,19 @@ void displayContact(const struct Contact* contact) {
 // displayContacts:
 // Put empty function definition below:
 void displayContacts(const struct Contact contacts[], int size) {
+    int arraySize = 0;
+
     displayContactHeader();
     
     int i;
     for (i = 0; i < size; i++) {
-        displayContact(&contacts[i]);
+        if (atoi(contacts[i].numbers.cell) > 0) { //atoi is used to convert string to int
+            displayContact(&contacts[i]);
+            arraySize++;
+        }
     }
 
-    displayContactFooter(size);
+    displayContactFooter(arraySize);
 }
 
 
