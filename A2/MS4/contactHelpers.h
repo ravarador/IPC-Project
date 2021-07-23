@@ -8,6 +8,8 @@
 // Assignment:     2
 // Milestone:      4
 //==============================================
+#include "contacts.h"
+
 
 #define MAXCONTACTS 5
 

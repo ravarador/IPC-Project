@@ -10,9 +10,11 @@
 //==============================================
 
 #define _CRT_SECURE_NO_WARNINGS
+
 #include <stdio.h>
-#include "contacts.h"
+
 #include "contactHelpers.h"
+#include "contacts.h"
 
 // +-------------------------------------------------+
 // | NOTE:  Copy/Paste your Assignment-2 Milestone-3 |
