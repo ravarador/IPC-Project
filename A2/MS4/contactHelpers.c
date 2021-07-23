@@ -12,6 +12,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h> 
+#include <stdlib.h>
 #include "contactHelpers.h"
 #include "contacts.h"
 // +-------------------------------------------------+
@@ -153,13 +154,13 @@ void contactManagerSystem(void) {
             break;
 
         case 5:
-            puts("\n<<< Feature 5 is unavailable >>>\n");
+            searchContacts(contacts, MAXCONTACTS);
             pause();
             puts("");
             break;
 
         case 6:
-            puts("\n<<< Feature 6 is unavailable >>>\n");
+            sortContacts(contacts, MAXCONTACTS);
             pause();
             puts("");
             break;
@@ -256,8 +257,12 @@ void displayContactFooter(int count) {
 // Put empty function definition below:
 void displayContact(const struct Contact* contact) {
     printf(" %s ", contact->name.firstName);
-    printf(" %s ", contact->name.middleInitial);
-    printf(" %s\n", contact->name.lastName);
+
+    if (strlen(contact->name.middleInitial) > 0) {
+        printf("%s ", contact->name.middleInitial);
+    }
+
+    printf("%s\n", contact->name.lastName);
 
     printf("    C: %-10s    H: %-10s    B: %-10s\n", contact->numbers.cell, 
         contact->numbers.home, 
@@ -395,9 +400,32 @@ void deleteContact(struct Contact contacts[], int size) {
     }
 }
 
+//SORTING ALGORITHM
 
+// selectSort sorts the elements of a[n] in ascending order
+void selectSort(struct Contact contacts[], int n)
+{
+    int smallerNum = 0, i = 0, j = 0;
+    struct Contact tempContact;
+
+    for (i = 0; i < n; i++) {
+        for (j = i + 1; j < n; j++) {
+            if (atoi(contacts[j].numbers.cell) < atoi(contacts[i].numbers.cell)) {
+                smallerNum = j;
+
+            }
+
+            if (smallerNum != i) {
+                tempContact = contacts[i];
+                contacts[i] = contacts[smallerNum];
+                contacts[smallerNum] = tempContact;
+            }
+        }
+    }
+}
 // sortContacts:
 // Put empty function definition below:
 void sortContacts(struct Contact contacts[], int size) {
-
+    selectSort(contacts, size);
+    printf("--- Contacts sorted! ---\n");
 }
