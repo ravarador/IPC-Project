@@ -1,9 +1,9 @@
 //==============================================
-// Name:           Full name here
-// Student Number: #########
-// Email:          userID@myseneca.ca
-// Section:        XXX
-// Date:           
+// Name:           Jexequiel Ravni Arador
+// Student Number: 127168219
+// Email:          jrarador@myseneca.ca
+// Section:        NBB
+// Date:           July 22, 2021
 //==============================================
 // Assignment:     2
 // Milestone:      4
