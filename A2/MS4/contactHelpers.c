@@ -427,5 +427,5 @@ void selectSort(struct Contact contacts[], int n)
 // Put empty function definition below:
 void sortContacts(struct Contact contacts[], int size) {
     selectSort(contacts, size);
-    printf("--- Contacts sorted! ---\n");
+    printf("\n--- Contacts sorted! ---\n\n");
 }
