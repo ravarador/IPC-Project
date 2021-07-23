@@ -8,3 +8,11 @@ Date:           July 22, 2021
 Assignment:     2
 Milestone:      4
 ==============================================
+
+In this assignment, I learned how easier it is to create a program with a systematic plan. For example, while adding codes in prototype definitions, I was surprised at how easy it was to create a function based on an instruction of an appropriately planned program.  For instance, the “displayContacts” function will be easier to make since I created the “displayContact” function first. Based on this experience, I conclude that software planning is as vital as actual coding.
+
+Another learning experience is how functions add maintainability and readability to the source code. The “getTenDigitPhone” function task is to ask the user for a ten-digit phone number. It comprises multiple lines of code that consist of a loop and a conditional statement. Instead of repeating the entire code block, the functions “searchContact”, “updateContact”, and “deleteContact” reused the “getTenDigitPhone” function for maintainability and readability. Also, the function “findContactIndex” is necessary in functions “updateContact”, “deleteContact”, “addContact”, and “searchContact” for code simplification. Based on this experience, I can say that functions are powerful tools to make a program easier to read and maintain. 
+
+To sum up my learning experience in this assignment, I realized that I could make a cleaner and better program by doing a software plan for the structure and functions.
+
+Although the “Contact Management” program is well-planned, it lacks a feature to handle the saving and loading of data. For example, when the program closes, it does not save the data; thus, the next time you open it, the data is reset. To fill that gap in the program, I would like to add a new feature wherein a text file stores the data. Then, the program will load the data from that text file or update data to that text file. 
