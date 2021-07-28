@@ -12,6 +12,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
+#include <ctype.h>
 
 #include "contactHelpers.h"
 #include "contacts.h"
@@ -76,6 +77,10 @@ void getNumbers(struct Numbers* numbers)
     scanf("%10[^\n]", numbers->cell);
     clearKeyboard();
 
+    if (!isNumber(numbers->cell)) {
+        getTenDigitPhone(numbers->cell);
+    }
+
     printf("Do you want to enter a home phone number? (y or n): ");
 
     if (yes())
@@ -83,6 +88,10 @@ void getNumbers(struct Numbers* numbers)
         printf("Please enter the contact's home phone number: ");
         scanf("%10[^\n]", numbers->home);
         clearKeyboard();
+
+        if (!isNumber(numbers->home)) {
+            getTenDigitPhone(numbers->home);
+        }
     }
 
     printf("Do you want to enter a business phone number? (y or n): ");
@@ -92,6 +101,10 @@ void getNumbers(struct Numbers* numbers)
         printf("Please enter the contact's business phone number: ");
         scanf("%10[^\n]", numbers->business);
         clearKeyboard();
+
+        if (!isNumber(numbers->business)) {
+            getTenDigitPhone(numbers->business);
+        }
     }
 }
 

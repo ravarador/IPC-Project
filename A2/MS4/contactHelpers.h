@@ -40,7 +40,7 @@ int menu(void);
 void contactManagerSystem(void);
 //extra definitions
 int getIntPositive(char* err);
-
+int isNumber(const char charArray[]);
 // +-------------------------------------------------+
 // |                                                 |
 // |                    N E W                        |

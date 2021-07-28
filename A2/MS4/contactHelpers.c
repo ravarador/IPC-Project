@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <string.h> 
 #include <stdlib.h>
+#include <ctype.h>
 
 #include "contactHelpers.h"
 
@@ -37,8 +38,8 @@ void pause(void) {
 
 // getInt: Empty function definition goes here:
 int getInt(void) {
-    char NL;
-    int intValue;
+    char NL = 'X';
+    int intValue = 0;
     do {
         int validateInput = scanf("%d%c", &intValue, &NL);
 
@@ -188,6 +189,17 @@ int getIntPositive(char* err) {
     return num;
 }
 
+int isNumber(const char charArray[]) //check for number
+{
+    int i = 0;
+    do {
+        if (isdigit(charArray[i]) == 0)
+            return 0;
+
+    } while (charArray[i++] != '\0');
+
+    return 1;
+}
 
 // +-------------------------------------------------+
 // |                                                 |
@@ -216,7 +228,7 @@ void getTenDigitPhone(char phoneNum[])
 
         // (String Length Function: validate entry of 10 characters)
         if (strlen(phoneNum) == 10) {
-            
+
             needInput = 0;
         }
         else {
@@ -273,7 +285,9 @@ void displayContact(const struct Contact* contact) {
 
     printf("       %d %s, ", contact->address.streetNumber, contact->address.street);
 
-    contact->address.apartmentNumber > 0 ? printf("Apt# %d, ", contact->address.apartmentNumber) : //do nothing ;
+    if (contact->address.apartmentNumber > 0) {
+        printf("Apt# %d, ", contact->address.apartmentNumber);
+    }
 
     printf("%s, %s\n", contact->address.city, contact->address.postalCode);
 }
