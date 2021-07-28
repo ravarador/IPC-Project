@@ -125,6 +125,7 @@ void contactManagerSystem(void) {
 
     do
     {
+        puts("");
         switch (menu())
         {
         case 0:
@@ -136,37 +137,31 @@ void contactManagerSystem(void) {
         case 1:
             displayContacts(contacts, MAXCONTACTS);
             pause();
-            puts("");
             break;
 
         case 2:
             addContact(contacts, MAXCONTACTS);
             pause();
-            puts("");
             break;
 
         case 3:
             updateContact(contacts, MAXCONTACTS);
             pause();
-            puts("");
             break;
 
         case 4:
             deleteContact(contacts, MAXCONTACTS);
             pause();
-            puts("");
             break;
 
         case 5:
             searchContacts(contacts, MAXCONTACTS);
             pause();
-            puts("");
             break;
 
         case 6:
             sortContacts(contacts, MAXCONTACTS);
             pause();
-            puts("");
             break;
 
         default:
@@ -191,12 +186,12 @@ int getIntPositive(char* err) {
 
 int isNumber(const char charArray[]) //check for number
 {
-    int i = 0;
-    do {
-        if (isdigit(charArray[i]) == 0)
+    int i;
+    for (i = 0; charArray[i] != '\0'; i++) {
+        if (isdigit(charArray[i]) == 0) {
             return 0;
-
-    } while (charArray[i++] != '\0');
+        }
+    }
 
     return 1;
 }
@@ -220,11 +215,13 @@ int isNumber(const char charArray[]) //check for number
 void getTenDigitPhone(char phoneNum[])
 {
     int needInput = 1;
-    printf("Enter a 10-digit phone number: ");
 
-    while (needInput == 1) {
+    if (phoneNum[0] == '\0') {
         scanf("%10s", phoneNum);
-        clearKeyboard();
+    }
+    
+    while (needInput == 1) {
+       
 
         // (String Length Function: validate entry of 10 characters)
         if (strlen(phoneNum) == 10) {
@@ -233,6 +230,8 @@ void getTenDigitPhone(char phoneNum[])
         }
         else {
             printf("Enter a 10-digit phone number: ");
+            scanf("%10s", phoneNum);
+            clearKeyboard();
         }
     }
 }
@@ -279,7 +278,7 @@ void displayContact(const struct Contact* contact) {
 
     printf("%s\n", contact->name.lastName);
 
-    printf("    C: %-10s    H: %-10s    B: %-10s\n", contact->numbers.cell, 
+    printf("    C: %-10s   H: %-10s   B: %-10s\n", contact->numbers.cell, 
         contact->numbers.home, 
         contact->numbers.business);
 
@@ -297,12 +296,12 @@ void displayContact(const struct Contact* contact) {
 // Put empty function definition below:
 void displayContacts(const struct Contact contacts[], int size) {
     int arraySize = 0;
-
+    puts("");
     displayContactHeader();
     
     int i;
     for (i = 0; i < size; i++) {
-        if (atoi(contacts[i].numbers.cell) > 0) { //atoi is used to convert string to int
+        if (strlen(contacts[i].numbers.cell) > 0) { //atoi is used to convert string to int
             displayContact(&contacts[i]);
             arraySize++;
         }
@@ -315,7 +314,7 @@ void displayContacts(const struct Contact contacts[], int size) {
 // searchContacts:
 // Put empty function definition below:
 void searchContacts(const struct Contact contacts[], int size) {
-    char phoneNumber[11];
+    char phoneNumber[11] = { 0 };
     int contactIndex = -1;
 
     printf("Enter the cell number for the contact: ");
@@ -327,7 +326,7 @@ void searchContacts(const struct Contact contacts[], int size) {
         displayContact(&contacts[contactIndex]);
     }
     else {
-        printf("*** Contact NOT FOUND ***\n");
+        printf("*** Contact NOT FOUND ***\n\n");
     }
 }
 
@@ -340,10 +339,10 @@ void addContact(struct Contact contacts[], int size) {
 
     if (indexEmpty != -1) {
         getContact(&contacts[indexEmpty]);
-        printf("--- New contact added! ---\n");
+        printf("--- New contact added! ---\n\n");
     }
     else {
-        printf("*** ERROR: The contact list is full! ***\n");
+        printf("*** ERROR: The contact list is full! ***\n\n");
     }
 }
 
@@ -352,8 +351,9 @@ void addContact(struct Contact contacts[], int size) {
 // Put empty function definition below:
 void updateContact(struct Contact contacts[], int size) {
     int indexToUpdate = -1;
-    char contactNumber[11];
+    char contactNumber[11] = { 0 };
 
+    printf("Enter the cell number for the contact: ");
     getTenDigitPhone(contactNumber);
 
     indexToUpdate = findContactIndex(contacts, size, contactNumber);
@@ -363,7 +363,8 @@ void updateContact(struct Contact contacts[], int size) {
 
         displayContact(&contacts[indexToUpdate]);
 
-        printf("Do you want to update the name? (y or n): ");
+        printf("\nDo you want to update the name? (y or n): ");
+        clearKeyboard();
 
         if (yes()) {
             getName(&contacts[indexToUpdate].name);
@@ -381,10 +382,10 @@ void updateContact(struct Contact contacts[], int size) {
             getNumbers(&contacts[indexToUpdate].numbers);
         }
 
-        printf("--- Contact Updated! ---\n");
+        printf("--- Contact Updated! ---\n\n");
     }
     else {
-        printf("*** Contact NOT FOUND ***\n");
+        printf("*** Contact NOT FOUND ***\n\n");
     }
 }
 
@@ -404,45 +405,65 @@ void deleteContact(struct Contact contacts[], int size) {
 
         displayContact(&contacts[indexToDelete]);
 
-        printf("CONFIRM: Delete this contact? (y or n): ");
+        printf("\nCONFIRM: Delete this contact? (y or n): ");
 
         if (yes()) {
             contacts[indexToDelete].numbers.cell[0] = '\0';
+            printf("\n--- Contact Deleted! ---\n\n");
         }
 
-        printf("--- Contact Deleted! ---\n");
+        
     }
     else {
-        printf("*** Contact NOT FOUND ***\n");
+        printf("\n*** Contact NOT FOUND ***\n\n");
     }
 }
 
 //SORTING ALGORITHM
 
 // selectSort sorts the elements of a[n] in ascending order
-void selectSort(struct Contact contacts[], int n)
-{
-    int smallerNum = 0, i = 0, j = 0;
-    struct Contact tempContact;
+//void selectSort(struct Contact contacts[], int n)
+//{
+//    int smallerNum = 0, i = 0, j = 0;
+//    struct Contact tempContact;
+//
+//    for (i = 0; i < n; i++) {
+//        for (j = i + 1; j < n; j++) {
+//            if (atoi(&contacts[j].numbers.cell) < atoi(&contacts[i].numbers.cell)) { ////todo: study why atoi does not work in matrix. 
+//                smallerNum = j;
+//
+//            }
+//
+//            if (smallerNum != i) {
+//                tempContact = contacts[i];
+//                contacts[i] = contacts[smallerNum];
+//                contacts[smallerNum] = tempContact;
+//            }
+//        }
+//    }
+//    printf("--- Contacts sorted! ---\n\n");
+//}
 
-    for (i = 0; i < n; i++) {
-        for (j = i + 1; j < n; j++) {
-            if (atoi(contacts[j].numbers.cell) < atoi(contacts[i].numbers.cell)) {
-                smallerNum = j;
 
-            }
+void sort(struct Contact contacts[], int size) {
 
-            if (smallerNum != i) {
-                tempContact = contacts[i];
-                contacts[i] = contacts[smallerNum];
-                contacts[smallerNum] = tempContact;
+    int i, j;
+    struct Contact contactTemp;
+    for (i = size - 1; i > 0; i--) {
+        for (j = 0; j < i; j++) {
+            if (strcmp(contacts[j].numbers.cell, contacts[j + 1].numbers.cell) > 0) {
+                contactTemp = contacts[j];
+                contacts[j] = contacts[j + 1];
+                contacts[j + 1] = contactTemp;
             }
         }
     }
+    printf("--- Contacts sorted! ---\n\n");
 }
+
+
 // sortContacts:
 // Put empty function definition below:
 void sortContacts(struct Contact contacts[], int size) {
-    selectSort(contacts, size);
-    printf("\n--- Contacts sorted! ---\n\n");
+    sort(contacts, size);
 }
