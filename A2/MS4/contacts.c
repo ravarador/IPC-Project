@@ -13,6 +13,8 @@
 
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h> 
+#include <stdlib.h>
 
 #include "contactHelpers.h"
 #include "contacts.h"
@@ -80,7 +82,7 @@ void getNumbers(struct Numbers* numbers)
     scanf("%10[^\n]", numbers->cell);
     clearKeyboard();
 
-    if (!isNumber(numbers->cell)) {
+    if (!isNumber(numbers->cell) || strlen(numbers->cell) != 10) {
         numbers->cell[0] = '\0';
         printf("Enter a 10-digit phone number: ");
         getTenDigitPhone(numbers->cell);
@@ -94,7 +96,7 @@ void getNumbers(struct Numbers* numbers)
         scanf("%10[^\n]", numbers->home);
         clearKeyboard();
 
-        if (!isNumber(numbers->home)) {
+        if (!isNumber(numbers->home) || strlen(numbers->home) != 10) {
             numbers->home[0] = '\0';
             printf("Enter a 10-digit phone number: ");
             getTenDigitPhone(numbers->home);
@@ -112,7 +114,7 @@ void getNumbers(struct Numbers* numbers)
         scanf("%10[^\n]", numbers->business);
         clearKeyboard();
 
-        if (!isNumber(numbers->business)) {
+        if (!isNumber(numbers->business) || strlen(numbers->business) != 10) {
             numbers->business[0] = '\0';
             printf("Enter a 10-digit phone number: ");
             getTenDigitPhone(numbers->business);

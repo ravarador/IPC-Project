@@ -125,13 +125,11 @@ void contactManagerSystem(void) {
 
     do
     {
-        puts("");
         switch (menu())
         {
         case 0:
             printf("\nExit the program? (Y)es/(N)o: ");
             flag = yes();
-            puts("");
             break;
 
         case 1:
@@ -167,6 +165,8 @@ void contactManagerSystem(void) {
         default:
             break;
         }
+
+        puts("");
     } while (!flag);
 
     puts("Contact Management System: terminated");
@@ -217,7 +217,7 @@ void getTenDigitPhone(char phoneNum[])
     int needInput = 1;
 
     if (phoneNum[0] == '\0') {
-        scanf("%10s", phoneNum);
+        scanf("%10s%*c", phoneNum);
     }
     
     while (needInput == 1) {
@@ -230,8 +230,7 @@ void getTenDigitPhone(char phoneNum[])
         }
         else {
             printf("Enter a 10-digit phone number: ");
-            scanf("%10s", phoneNum);
-            clearKeyboard();
+            scanf("%10s%*c", phoneNum);
         }
     }
 }
@@ -317,13 +316,16 @@ void searchContacts(const struct Contact contacts[], int size) {
     char phoneNumber[11] = { 0 };
     int contactIndex = -1;
 
+    puts("");
     printf("Enter the cell number for the contact: ");
     getTenDigitPhone(phoneNumber);
 
     contactIndex = findContactIndex(contacts, size, phoneNumber);
 
     if (contactIndex > -1) {
+        puts("");
         displayContact(&contacts[contactIndex]);
+        puts("");
     }
     else {
         printf("*** Contact NOT FOUND ***\n\n");
@@ -334,6 +336,8 @@ void searchContacts(const struct Contact contacts[], int size) {
 // addContact:
 // Put empty function definition below:
 void addContact(struct Contact contacts[], int size) {
+    puts("");
+
     int indexEmpty = -1;
     indexEmpty = findContactIndex(contacts, size, "");
 
@@ -353,6 +357,7 @@ void updateContact(struct Contact contacts[], int size) {
     int indexToUpdate = -1;
     char contactNumber[11] = { 0 };
 
+    puts("");
     printf("Enter the cell number for the contact: ");
     getTenDigitPhone(contactNumber);
 
@@ -364,7 +369,6 @@ void updateContact(struct Contact contacts[], int size) {
         displayContact(&contacts[indexToUpdate]);
 
         printf("\nDo you want to update the name? (y or n): ");
-        clearKeyboard();
 
         if (yes()) {
             getName(&contacts[indexToUpdate].name);
@@ -394,8 +398,10 @@ void updateContact(struct Contact contacts[], int size) {
 // Put empty function definition below:
 void deleteContact(struct Contact contacts[], int size) {
     int indexToDelete = -1;
-    char contactNumber[11];
+    char contactNumber[11] = { 0 };
 
+    puts("");
+    printf("Enter the cell number for the contact: ");
     getTenDigitPhone(contactNumber);
 
     indexToDelete = findContactIndex(contacts, size, contactNumber);
@@ -409,7 +415,10 @@ void deleteContact(struct Contact contacts[], int size) {
 
         if (yes()) {
             contacts[indexToDelete].numbers.cell[0] = '\0';
-            printf("\n--- Contact Deleted! ---\n\n");
+            printf("--- Contact deleted! ---\n\n");
+        }
+        else {
+            puts("");
         }
 
         
@@ -458,6 +467,7 @@ void sort(struct Contact contacts[], int size) {
             }
         }
     }
+    puts("");
     printf("--- Contacts sorted! ---\n\n");
 }
 
