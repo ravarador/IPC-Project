@@ -8,6 +8,7 @@
 #define MAX_ACTIVITY_NAME_LEN 20
 #define NUM_ACTIVITY_NAMES 20
 #define MAX_NAME_LEN 20
+#define MAX_PARTICIPANTS 20
 
 struct Date {
 	int year;
@@ -30,6 +31,6 @@ struct Participant {
 //lists all participants and events
 
 //find participant
-int findParticipant(const struct Participant *participant, int numOfActivityNames, char activity[MAX_ACTIVITY_NAME_LEN]);
+int findParticipant(const struct Participant participants[], int count, char name[MAX_ACTIVITY_NAME_LEN]);
 
 #endif 
