@@ -5,6 +5,11 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include "participant.h"
+#include "date.h"
+
+#define FILE_NAME "data.txt"
+
 int readActivityFile(FILE* fp, struct Participant participants[], const char activNames[][MAX_ACTIVITY_NAME_LEN + 1]);
 
 #endif 

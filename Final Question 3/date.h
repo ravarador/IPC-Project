@@ -5,6 +5,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include "participant.h"
+
 int zeller(const struct Date* date);
 
 #endif 

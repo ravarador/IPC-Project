@@ -5,20 +5,31 @@
 #include <string.h>
 #include <stdlib.h>
 
-struct date {
+#define MAX_ACTIVITY_NAME_LEN 20
+#define NUM_ACTIVITY_NAMES 20
+#define MAX_NAME_LEN 20
+
+struct Date {
 	int year;
 	int month;
 	int day;
-}
+};
 
-struct participants {
-	char name[30];
-	char activity[30];
-	struct date;
+struct Activity {
+	struct Date date;
+	char activityType[MAX_ACTIVITY_NAME_LEN];
 	double distance;
-	
+};
+
+struct Participant {
+	char name[MAX_NAME_LEN];
+	struct Activity activities[NUM_ACTIVITY_NAMES];
+	int numActivities;
 };
 
 //lists all participants and events
+
+//find participant
+int findParticipant(const struct Participant *participant, int numOfActivityNames, char activity[MAX_ACTIVITY_NAME_LEN]);
 
 #endif 
