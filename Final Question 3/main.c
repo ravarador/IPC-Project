@@ -6,7 +6,7 @@
 
 int main() {
 	struct Participant participants[MAX_PARTICIPANTS] = { { 0 } };
-    int count;
+	int count;
 	FILE* fp = NULL;
 	fp = fopen(FILE_NAME, "r");
 	char activities[][MAX_ACTIVITY_NAME_LEN + 1] = { "run", "walk", "swim" };
@@ -18,51 +18,51 @@ int main() {
 		fclose(fp);
 	}
 
-    int flag = 0;
+	int flag = 0;
 
-    do
-    {
-        switch (menu())
-        {
-        case 0:
-            //exit the program
-            flag = 1;
-            break;
+	do
+	{
+		switch (menu())
+		{
+		case 0:
+			//exit the program
+			flag = 1;
+			break;
 
-        case 1:
-            //list all participants and events
-            break;
+		case 1:
+			//list all participants and events
+			break;
 
-        case 2:
-            //list total run distances
-            displayTotalDistance(participants, count, "RUN");
-            break;
+		case 2:
+			//list total run distances
+			displayTotalDistance(participants, count, "RUN");
+			break;
 
-        case 3:
-            //list total swim distances
-            displayTotalDistance(participants, count, "SWIM");
-            break;
+		case 3:
+			//list total swim distances
+			displayTotalDistance(participants, count, "SWIM");
+			break;
 
-        case 4:
-            //list total bike distances
-            displayTotalDistance(participants, count, "BIKE");
-            break;
+		case 4:
+			//list total bike distances
+			displayTotalDistance(participants, count, "BIKE");
+			break;
 
-        case 5:
-            //list best run distances
-            break;
+		case 5:
+			//list best run distances
+			break;
 
-        case 6:
-            //list best swim distances
-            break;
+		case 6:
+			//list best swim distances
+			break;
 
-        case 7:
-            //list best bike distances
-            break;
+		case 7:
+			//list best bike distances
+			break;
 
-        default:
-            break;
-        }
+		default:
+			break;
+		}
 
-    } while (!flag);
+	} while (!flag);
 }
