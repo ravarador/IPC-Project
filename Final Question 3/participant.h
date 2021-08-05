@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 #define MAX_ACTIVITY_NAME_LEN 4
 #define NUM_ACTIVITY_NAMES 14
@@ -34,5 +35,8 @@ struct Participant {
 //find participant
 int findParticipant(const struct Participant participants[], int count, char name[MAX_ACTIVITY_NAME_LEN]);
 
+double getTotalOfParticipant(const struct Participant participants[], char name[], char activityType);
+
+void displayTotalDistance(const struct Participant participants[], int numberOfParticipants, char activityType[]);
 
 #endif 

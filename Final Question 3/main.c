@@ -2,9 +2,6 @@
 
 #include "file.h"
 #include "date.h"
-#include "bike.h"
-#include "run.h"
-#include "swim.h"
 #include "menu.h"
 
 int main() {
@@ -38,7 +35,7 @@ int main() {
 
         case 2:
             //list total run distances
-            displayTotalRunDistance(participants, count);
+            displayTotalDistance(participants, count, "run");
             break;
 
         case 3:
