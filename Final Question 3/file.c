@@ -37,7 +37,7 @@ int readActivityFile(FILE* fp, struct Participant participants[], const char act
 			}
 
 			actPosn = participants[addPosn].numActivities;
-			//participants[addPosn].activities[actPosn].activityType = findString(activNames, NUM_ACTIVITY_NAMES, activity);
+			participants[addPosn].activities[actPosn].activityType = findString(activNames, NUM_ACTIVITY_NAMES, activity);
 			participants[addPosn].activities[actPosn].date.year = year;
 			participants[addPosn].activities[actPosn].date.month = month;
 			participants[addPosn].activities[actPosn].date.day = day;

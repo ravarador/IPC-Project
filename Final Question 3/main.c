@@ -9,14 +9,14 @@
 
 int main() {
 	struct Participant participants[MAX_PARTICIPANTS] = { { 0 } };
-
+    int count;
 	FILE* fp = NULL;
 	fp = fopen(FILE_NAME, "r");
-	//char activities[][MAX_ACTIVITY_NAME_LEN + 1] = { "run", "walk", "swim" };
-	char activities[MAX_ACTIVITY_NAME_LEN + 1];
+	char activities[][MAX_ACTIVITY_NAME_LEN + 1] = { "run", "walk", "swim" };
+	//char activities[MAX_ACTIVITY_NAME_LEN + 1];
 
 	if (fp != NULL) {
-		printf("Read %d participants \n\n",readActivityFile(fp, participants, &activities));
+		printf("Read %d participants \n\n", count = readActivityFile(fp, participants, &activities));
 
 		fclose(fp);
 	}
@@ -38,6 +38,7 @@ int main() {
 
         case 2:
             //list total run distances
+            displayTotalRunDistance(participants, count);
             break;
 
         case 3:

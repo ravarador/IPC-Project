@@ -18,6 +18,4 @@ int findParticipant(const struct Participant participants[], int count, char nam
 	}
 
 	return -1;
-
-	//return count;
 };

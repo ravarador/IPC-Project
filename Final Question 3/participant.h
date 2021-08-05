@@ -5,10 +5,11 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define MAX_ACTIVITY_NAME_LEN 9
-#define NUM_ACTIVITY_NAMES 9
-#define MAX_NAME_LEN 9
+#define MAX_ACTIVITY_NAME_LEN 4
+#define NUM_ACTIVITY_NAMES 14
+#define MAX_NAME_LEN 20
 #define MAX_PARTICIPANTS 9
+#define MAX_ACTIVITIES 3
 
 struct Date {
 	int year;
@@ -18,7 +19,7 @@ struct Date {
 
 struct Activity {
 	struct Date date;
-	char activityType[MAX_ACTIVITY_NAME_LEN];
+	char activityType; //TODO CHANGE ALL ACTIVITYTYPE IMPLEMENTATION TO CHAR
 	double distance;
 };
 
@@ -32,5 +33,6 @@ struct Participant {
 
 //find participant
 int findParticipant(const struct Participant participants[], int count, char name[MAX_ACTIVITY_NAME_LEN]);
+
 
 #endif 

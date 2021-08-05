@@ -8,6 +8,6 @@
 #include "participant.h"
 
 //findString
-char* findString(char activSrc[], const char activNames[][MAX_ACTIVITY_NAME_LEN + 1], int numActivityNames, char activity[]);
+char findString(const char activNames[][MAX_ACTIVITY_NAME_LEN + 1], int numActivityNames, char activity[]);
 
 #endif 
