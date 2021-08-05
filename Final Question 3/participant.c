@@ -39,8 +39,36 @@ void displayTotalDistance(const struct Participant participants[], int numberOfP
 
 	int i;
 	for (i = 0; i < numberOfParticipants; i++) {
-		printf("%20s", participants[i].name);
+		printf("%21s", participants[i].name);
 		printf("%7.1lf\n", getTotalOfParticipant(participants, participants[i].name, tolower(activityType[0])));
+	}
+	puts("");
+}
+
+double getBestOfParticipant(const struct Participant participants[], char name[], char activityType) {
+	int i, t; double top = 0;
+	for (i = 0; i < NUM_ACTIVITY_NAMES; i++) {
+		if (strcmp(participants[i].name, name) == 0) {
+			for (t = 0; t < NUM_ACTIVITY_NAMES; t++) {
+				if (participants[i].activities[t].activityType == activityType) {
+					if (participants[i].activities[t].distance > participants[i].activities[t - 1].distance) {
+						top = participants[i].activities[t].distance;
+					}
+					
+				}
+			}
+		}
+	}
+	return top;
+}
+
+void displayBestDistance(const struct Participant participants[], int numberOfParticipants, char activityType[]) {
+	printf("        *** TOP %s ***\n", activityType);
+
+	int i;
+	for (i = 0; i < numberOfParticipants; i++) {
+		printf("%21s", participants[i].name);
+		printf("%7.1lf\n", getBestOfParticipant(participants, participants[i].name, tolower(activityType[0])));
 	}
 	puts("");
 }

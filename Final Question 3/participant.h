@@ -39,4 +39,8 @@ double getTotalOfParticipant(const struct Participant participants[], char name[
 
 void displayTotalDistance(const struct Participant participants[], int numberOfParticipants, char activityType[]);
 
+double getBestOfParticipant(const struct Participant participants[], char name[], char activityType);
+
+void displayBestDistance(const struct Participant participants[], int numberOfParticipants, char activityType[]);
+
 #endif 

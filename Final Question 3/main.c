@@ -35,29 +35,32 @@ int main() {
 
 		case 2:
 			//list total run distances
-			displayTotalDistance(participants, count, "RUN");
+			displayTotalDistance(participants, count, "RUNS");
 			break;
 
 		case 3:
 			//list total swim distances
-			displayTotalDistance(participants, count, "SWIM");
+			displayTotalDistance(participants, count, "SWIMS");
 			break;
 
 		case 4:
 			//list total bike distances
-			displayTotalDistance(participants, count, "BIKE");
+			displayTotalDistance(participants, count, "BIKES");
 			break;
 
 		case 5:
 			//list best run distances
+			displayBestDistance(participants, count, "RUNS");
 			break;
 
 		case 6:
 			//list best swim distances
+			displayBestDistance(participants, count, "SWIMS");
 			break;
 
 		case 7:
 			//list best bike distances
+			displayBestDistance(participants, count, "BIKES");
 			break;
 
 		default:
