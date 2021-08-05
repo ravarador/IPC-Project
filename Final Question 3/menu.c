@@ -1,6 +1,7 @@
+#include "integer_helper.h"
 #include "menu.h"
 
-void menu() {
+int menu() {
 	int choice;
 
 	puts("Select one of the following options:");
@@ -12,7 +13,6 @@ void menu() {
 	puts("5 - list best run distances");
 	puts("6 - list best swim distances");
 	puts("7 - list best bike distances");
-	scanf("%d", &choice);
 
-	return choice;
+	return getIntInRange(0, 7);
 }

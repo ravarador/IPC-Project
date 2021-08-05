@@ -5,8 +5,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-
 //display menu
-void menu();
+int menu();
 
 #endif 
