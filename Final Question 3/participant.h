@@ -5,10 +5,10 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define MAX_ACTIVITY_NAME_LEN 20
-#define NUM_ACTIVITY_NAMES 20
-#define MAX_NAME_LEN 20
-#define MAX_PARTICIPANTS 20
+#define MAX_ACTIVITY_NAME_LEN 9
+#define NUM_ACTIVITY_NAMES 9
+#define MAX_NAME_LEN 9
+#define MAX_PARTICIPANTS 9
 
 struct Date {
 	int year;
