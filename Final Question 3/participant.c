@@ -35,12 +35,12 @@ double getTotalOfParticipant(const struct Participant participants[], char name[
 }
 
 void displayTotalDistance(const struct Participant participants[], int numberOfParticipants, char activityType[]) {
-	printf("        *** TOTAL %s ***\n", toupper(activityType));
+	printf("        *** TOTAL %s ***\n", activityType);
 
 	int i;
 	for (i = 0; i < numberOfParticipants; i++) {
 		printf("%20s", participants[i].name);
-		printf("%7.1lf\n", getTotalOfParticipant(participants, participants[i].name, activityType[0]));
+		printf("%7.1lf\n", getTotalOfParticipant(participants, participants[i].name, tolower(activityType[0])));
 	}
 	puts("");
 }

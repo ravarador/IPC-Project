@@ -35,15 +35,17 @@ int main() {
 
         case 2:
             //list total run distances
-            displayTotalDistance(participants, count, "run");
+            displayTotalDistance(participants, count, "RUN");
             break;
 
         case 3:
             //list total swim distances
+            displayTotalDistance(participants, count, "SWIM");
             break;
 
         case 4:
             //list total bike distances
+            displayTotalDistance(participants, count, "BIKE");
             break;
 
         case 5:
