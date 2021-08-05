@@ -5,6 +5,7 @@
 #include "bike.h"
 #include "run.h"
 #include "swim.h"
+#include "menu.h"
 
 int main() {
 	struct Participant participants[MAX_PARTICIPANTS] = { { 0 } };
@@ -15,6 +16,10 @@ int main() {
 
 	if (fp != NULL) {
 		readActivityFile(fp, participants, &activities);
+
+		switch (menu()) {
+			
+		}
 
 		fclose(fp);
 	}
