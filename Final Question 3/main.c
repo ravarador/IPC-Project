@@ -16,7 +16,7 @@ int main() {
 	char activities[MAX_ACTIVITY_NAME_LEN + 1];
 
 	if (fp != NULL) {
-		readActivityFile(fp, participants, &activities);
+		printf("Read %d participants \n\n",readActivityFile(fp, participants, &activities));
 
 		fclose(fp);
 	}
@@ -59,6 +59,7 @@ int main() {
         case 7:
             //list best bike distances
             break;
+
         default:
             break;
         }
