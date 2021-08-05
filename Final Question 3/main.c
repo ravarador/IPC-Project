@@ -28,27 +28,37 @@ int main() {
         switch (menu())
         {
         case 0:
+            //exit the program
             flag = 1;
             break;
 
         case 1:
+            //list all participants and events
             break;
 
         case 2:
+            //list total run distances
             break;
 
         case 3:
+            //list total swim distances
             break;
 
         case 4:
+            //list total bike distances
             break;
 
         case 5:
+            //list best run distances
             break;
 
         case 6:
+            //list best swim distances
             break;
 
+        case 7:
+            //list best bike distances
+            break;
         default:
             break;
         }
