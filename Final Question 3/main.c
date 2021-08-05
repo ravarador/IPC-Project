@@ -13,7 +13,7 @@ int main() {
 	//char activities[MAX_ACTIVITY_NAME_LEN + 1];
 
 	if (fp != NULL) {
-		printf("Read %d participants \n\n", count = readActivityFile(fp, participants, &activities));
+		printf("Read %d participants \n\n", count = readActivityFile(fp, participants, activities));
 
 		fclose(fp);
 	}
