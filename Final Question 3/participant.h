@@ -10,7 +10,7 @@
 #define NUM_ACTIVITY_NAMES 14
 #define MAX_NAME_LEN 20
 #define MAX_PARTICIPANTS 9
-#define MAX_ACTIVITIES 3
+#define MAX_ACTIVITIES 10
 
 struct Date {
 	int year;

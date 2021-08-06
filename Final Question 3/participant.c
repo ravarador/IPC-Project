@@ -1,4 +1,7 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include "participant.h"
+#include "string_helper.h"
 
 //lists all participants and events
 
@@ -35,13 +38,23 @@ double getTotalOfParticipant(const struct Participant participants[], char name[
 }
 
 void displayTotalDistance(const struct Participant participants[], int numberOfParticipants, char activityType[]) {
+	struct toSortStruct sortedStruct[MAX_PARTICIPANTS];
+
 	printf("        *** TOTAL %s ***\n", activityType);
 
 	int i;
 	for (i = 0; i < numberOfParticipants; i++) {
-		printf("%21s", participants[i].name);
-		printf("%7.1lf\n", getTotalOfParticipant(participants, participants[i].name, tolower(activityType[0])));
+		strcpy(sortedStruct[i].name, participants[i].name);
+		sortedStruct[i].valueToSort = getTotalOfParticipant(participants, participants[i].name, tolower(activityType[0]));
 	}
+
+	sortStruct(&sortedStruct, numberOfParticipants);
+
+	for (i = 0; i < numberOfParticipants; i++) {
+		printf("%20s", sortedStruct[i].name);
+		printf("%7.1lf\n", sortedStruct[i].valueToSort);
+	}
+
 	puts("");
 }
 
@@ -62,15 +75,22 @@ double getBestOfParticipant(const struct Participant participants[], char name[]
 }
 
 void displayBestDistance(const struct Participant participants[], int numberOfParticipants, char activityType[]) {
+	struct toSortStruct sortedStruct[MAX_PARTICIPANTS];
+
 	printf("        *** TOP %s ***\n", activityType);
 
 	int i;
 	for (i = 0; i < numberOfParticipants; i++) {
-		//store participant name to array1
-		//store best value along with array1
-		//then another loop to display the contents of array1
-		printf("%21s", participants[i].name);
-		printf("%7.1lf\n", getBestOfParticipant(participants, participants[i].name, tolower(activityType[0])));
+		strcpy(sortedStruct[i].name, participants[i].name);
+		sortedStruct[i].valueToSort = getBestOfParticipant(participants, participants[i].name, tolower(activityType[0]));
 	}
+
+	sortStruct(&sortedStruct, numberOfParticipants);
+
+	for (i = 0; i < numberOfParticipants; i++) {
+		printf("%20s", sortedStruct[i].name);
+		printf("%7.1lf\n", sortedStruct[i].valueToSort);
+	}
+
 	puts("");
 }
