@@ -6,7 +6,7 @@
 //lists all participants and events
 
 //find participant
-int findParticipant(const struct Participant participants[], int count, char name[MAX_ACTIVITY_NAME_LEN]) {
+int findParticipant(const struct Participant participants[], const int count, const char name[MAX_ACTIVITY_NAME_LEN]) {
 	int i;
 	for (i = 0; i < count; i++) {
 		int isFound = strcmp(participants[i].name, name);
@@ -23,7 +23,7 @@ int findParticipant(const struct Participant participants[], int count, char nam
 	return -1;
 };
 
-double getTotalOfParticipant(const struct Participant participants[], char name[], char activityType) {
+double getTotalOfParticipant(const struct Participant participants[], const char name[], const char activityType) {
 	int i, t; double sum = 0;
 	for (i = 0; i < NUM_ACTIVITY_NAMES; i++) {
 		if (strcmp(participants[i].name, name) == 0) {
@@ -37,7 +37,7 @@ double getTotalOfParticipant(const struct Participant participants[], char name[
 	return sum;
 }
 
-void displayTotalDistance(const struct Participant participants[], int numberOfParticipants, char activityType[]) {
+void displayTotalDistance(const struct Participant participants[], const int numberOfParticipants, const char activityType[]) {
 	struct toSortStruct sortedStruct[MAX_PARTICIPANTS];
 
 	printf("        *** TOTAL %s ***\n", activityType);
@@ -58,13 +58,13 @@ void displayTotalDistance(const struct Participant participants[], int numberOfP
 	puts("");
 }
 
-double getBestOfParticipant(const struct Participant participants[], char name[], char activityType) {
-	int i, t; double top = 0;
+double getBestOfParticipant(const struct Participant participants[], const char name[], const char activityType) {
+	int i, t; double top = 0, low = 0;
 	for (i = 0; i < NUM_ACTIVITY_NAMES; i++) {
 		if (strcmp(participants[i].name, name) == 0) {
 			for (t = 0; t < NUM_ACTIVITY_NAMES; t++) {
 				if (participants[i].activities[t].activityType == activityType) {
-					if (participants[i].activities[t].distance > participants[i].activities[t - 1].distance) {
+					if (participants[i].activities[t].distance > top) {
 						top = participants[i].activities[t].distance;
 					}
 				}
@@ -74,7 +74,7 @@ double getBestOfParticipant(const struct Participant participants[], char name[]
 	return top;
 }
 
-void displayBestDistance(const struct Participant participants[], int numberOfParticipants, char activityType[]) {
+void displayBestDistance(const struct Participant participants[], const int numberOfParticipants, const char activityType[]) {
 	struct toSortStruct sortedStruct[MAX_PARTICIPANTS];
 
 	printf("        *** TOP %s ***\n", activityType);

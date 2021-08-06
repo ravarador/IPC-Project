@@ -33,14 +33,14 @@ struct Participant {
 //lists all participants and events
 
 //find participant
-int findParticipant(const struct Participant participants[], int count, char name[MAX_ACTIVITY_NAME_LEN]);
+int findParticipant(const struct Participant participants[], const int count, const char name[MAX_ACTIVITY_NAME_LEN]);
 
-double getTotalOfParticipant(const struct Participant participants[], char name[], char activityType);
+double getTotalOfParticipant(const struct Participant participants[], const char name[], const char activityType);
 
-void displayTotalDistance(const struct Participant participants[], int numberOfParticipants, char activityType[]);
+void displayTotalDistance(const struct Participant participants[], const int numberOfParticipants, const char activityType[]);
 
-double getBestOfParticipant(const struct Participant participants[], char name[], char activityType);
+double getBestOfParticipant(const struct Participant participants[], const char name[], const char activityType);
 
-void displayBestDistance(const struct Participant participants[], int numberOfParticipants, char activityType[]);
+void displayBestDistance(const struct Participant participants[], const int numberOfParticipants, const char activityType[]);
 
 #endif 
