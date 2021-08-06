@@ -26,6 +26,7 @@ int main() {
 		{
 		case 0:
 			//exit the program
+			puts("Goodbye");
 			flag = 1;
 			break;
 

@@ -8,23 +8,24 @@
 void displayAllParticipantsWithEvents(const struct Participant participants[], const int numberOfParticipants) {
 	int i, j;
 	char dayOfWeek[4];
+	char monthInMMM[4];
 	for (i = 0; i < numberOfParticipants; i++) {
 		printf("%s\n", participants[i].name);
 		puts("----------------------------------------------");
 
 		j = 0;
 		do {
+			convertDayToDayOfWeek(zeller(&participants[i].activities[j].date), dayOfWeek);
+			convertMonthValueToMMM(participants[i].activities[j].date.month, monthInMMM);
+
 			if (participants[i].activities[j].activityType == 's') {
-				convertDayToDayOfWeek(zeller(&participants[i].activities[j].date), dayOfWeek);
-				printf("%5s %3s", "swim", dayOfWeek);
+				printf("%5s %3s %3s", "swim", dayOfWeek, monthInMMM);
 			}
 			else if (participants[i].activities[j].activityType == 'r') {
-				convertDayToDayOfWeek(zeller(&participants[i].activities[j].date), dayOfWeek);
-				printf("%5s %3s", "run", dayOfWeek);
+				printf("%5s %3s %3s", "run", dayOfWeek, monthInMMM);
 			}
 			else if (participants[i].activities[j].activityType == 'b') {
-				convertDayToDayOfWeek(zeller(&participants[i].activities[j].date), dayOfWeek);
-				printf("%5s %3s", "bike", dayOfWeek);
+				printf("%5s %3s %3s", "bike", dayOfWeek, monthInMMM);
 			}
 
 			dayOfWeek[0] = '\0'; //reset the value of dayOfWeek
@@ -70,7 +71,7 @@ double getTotalOfParticipant(const struct Participant participants[], const char
 void displayTotalDistance(const struct Participant participants[], const int numberOfParticipants, const char activityType[]) {
 	struct toSortStruct sortedStruct[MAX_PARTICIPANTS];
 
-	printf("        *** TOTAL %s ***\n", activityType);
+	printf("     *** TOTAL %s ***\n", activityType);
 
 	int i;
 	for (i = 0; i < numberOfParticipants; i++) {
@@ -81,7 +82,7 @@ void displayTotalDistance(const struct Participant participants[], const int num
 	sortStruct(sortedStruct, numberOfParticipants);
 
 	for (i = 0; i < numberOfParticipants; i++) {
-		printf("%20s", sortedStruct[i].name);
+		printf("%16s", sortedStruct[i].name);
 		printf("%7.1lf\n", sortedStruct[i].valueToSort);
 	}
 
@@ -107,7 +108,7 @@ double getBestOfParticipant(const struct Participant participants[], const char 
 void displayBestDistance(const struct Participant participants[], const int numberOfParticipants, const char activityType[]) {
 	struct toSortStruct sortedStruct[MAX_PARTICIPANTS];
 
-	printf("        *** TOP %s ***\n", activityType);
+	printf("     *** TOP %s ***\n", activityType);
 
 	int i;
 	for (i = 0; i < numberOfParticipants; i++) {
@@ -118,7 +119,7 @@ void displayBestDistance(const struct Participant participants[], const int numb
 	sortStruct(sortedStruct, numberOfParticipants);
 
 	for (i = 0; i < numberOfParticipants; i++) {
-		printf("%20s", sortedStruct[i].name);
+		printf("%16s", sortedStruct[i].name);
 		printf("%7.1lf\n", sortedStruct[i].valueToSort);
 	}
 

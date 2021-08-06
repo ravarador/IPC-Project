@@ -27,27 +27,17 @@ int zeller(const struct Date* date)
 }
 
 void convertDayToDayOfWeek(int day, char* dayOfWeek) {
-    switch (day) {
-    case SAT:
-        strcpy(dayOfWeek, "Sat");
-        break;
-    case SUN:
-        strcpy(dayOfWeek, "Sun");
-        break;
-    case MON:
-        strcpy(dayOfWeek, "Mon");
-        break;
-    case TUE:
-        strcpy(dayOfWeek, "Tue");
-        break;
-    case WED:
-        strcpy(dayOfWeek, "Wed");
-        break;
-    case THU:
-        strcpy(dayOfWeek, "Thu");
-        break;
-    case FRI:
-        strcpy(dayOfWeek, "Fri");
-        break;
-    }
+    char days[9][4] = {
+        "Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"
+    };
+
+    strcpy(dayOfWeek, days[day]);
+}
+
+void convertMonthValueToMMM(int month, char* monthInMMM) {
+    char months[14][4] = {
+        "", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "July", "Aug", "Sep", "Oct", "Nov", "Dec"
+    };
+
+    strcpy(monthInMMM, months[month]);
 }
