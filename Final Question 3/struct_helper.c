@@ -1,9 +1,4 @@
-#include "string_helper.h"
-
-//findString
-char findString(const char activNames[][MAX_ACTIVITY_NAME_LEN + 1], int numActivityNames, char activity[]) {
-	return activity[0];
-};
+#include "struct_helper.h"
 
 void sortStruct(struct toSortStruct toSortStruct[], int size) {
 	int i, j;

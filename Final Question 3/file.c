@@ -1,7 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "file.h"
-#include "string_helper.h"
 #include "date.h"
 
 int readActivityFile(FILE* fp, struct Participant participants[], const char activNames[][MAX_ACTIVITY_NAME_LEN + 1])
@@ -37,7 +36,7 @@ int readActivityFile(FILE* fp, struct Participant participants[], const char act
 			}
 
 			actPosn = participants[addPosn].numActivities;
-			participants[addPosn].activities[actPosn].activityType = findString(activNames, NUM_ACTIVITY_NAMES, activity);
+			participants[addPosn].activities[actPosn].activityType = activity[0];
 			participants[addPosn].activities[actPosn].date.year = year;
 			participants[addPosn].activities[actPosn].date.month = month;
 			participants[addPosn].activities[actPosn].date.day = day;

@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "participant.h"
-#include "string_helper.h"
+#include "struct_helper.h"
 
 //lists all participants and events
 

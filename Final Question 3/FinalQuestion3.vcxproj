@@ -147,7 +147,7 @@
     <ClCompile Include="date.c" />
     <ClCompile Include="file.c" />
     <ClCompile Include="participant.c" />
-    <ClCompile Include="string_helper.c" />
+    <ClCompile Include="struct_helper.c" />
     <ClCompile Include="menu.c" />
     <ClCompile Include="integer_helper.c" />
   </ItemGroup>
@@ -155,7 +155,7 @@
     <ClInclude Include="date.h" />
     <ClInclude Include="file.h" />
     <ClInclude Include="participant.h" />
-    <ClInclude Include="string_helper.h" />
+    <ClInclude Include="struct_helper.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="integer_helper.h" />
   </ItemGroup>
