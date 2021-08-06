@@ -54,7 +54,6 @@ double getBestOfParticipant(const struct Participant participants[], char name[]
 					if (participants[i].activities[t].distance > participants[i].activities[t - 1].distance) {
 						top = participants[i].activities[t].distance;
 					}
-					
 				}
 			}
 		}
@@ -67,6 +66,9 @@ void displayBestDistance(const struct Participant participants[], int numberOfPa
 
 	int i;
 	for (i = 0; i < numberOfParticipants; i++) {
+		//store participant name to array1
+		//store best value along with array1
+		//then another loop to display the contents of array1
 		printf("%21s", participants[i].name);
 		printf("%7.1lf\n", getBestOfParticipant(participants, participants[i].name, tolower(activityType[0])));
 	}
