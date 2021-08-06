@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include "date.h"
 
 int zeller(const struct Date* date)
@@ -22,4 +24,30 @@ int zeller(const struct Date* date)
       result = result % 7;
 
       return result;
+}
+
+void convertDayToDayOfWeek(int day, char* dayOfWeek) {
+    switch (day) {
+    case SAT:
+        strcpy(dayOfWeek, "Sat");
+        break;
+    case SUN:
+        strcpy(dayOfWeek, "Sun");
+        break;
+    case MON:
+        strcpy(dayOfWeek, "Mon");
+        break;
+    case TUE:
+        strcpy(dayOfWeek, "Tue");
+        break;
+    case WED:
+        strcpy(dayOfWeek, "Wed");
+        break;
+    case THU:
+        strcpy(dayOfWeek, "Thu");
+        break;
+    case FRI:
+        strcpy(dayOfWeek, "Fri");
+        break;
+    }
 }

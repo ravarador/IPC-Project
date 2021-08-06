@@ -2,14 +2,39 @@
 
 #include "participant.h"
 #include "struct_helper.h"
+#include "date.h"
 
 //lists all participants and events
-//void displayAllParticipantsWithEvents(const struct Participant participants[], const int numberOfParticipants, const char activityType[]) {
-//	int i;
-//	for (i = 0; i < numberOfParticipants; i++) {
-//
-//	}
-//}
+void displayAllParticipantsWithEvents(const struct Participant participants[], const int numberOfParticipants) {
+	int i, j;
+	char dayOfWeek[4];
+	for (i = 0; i < numberOfParticipants; i++) {
+		printf("%s\n", participants[i].name);
+		puts("----------------------------------------------");
+
+		j = 0;
+		do {
+			if (participants[i].activities[j].activityType == 's') {
+				convertDayToDayOfWeek(zeller(&participants[i].activities[j].date), dayOfWeek);
+				printf("%5s %3s", "swim", dayOfWeek);
+			}
+			else if (participants[i].activities[j].activityType == 'r') {
+				convertDayToDayOfWeek(zeller(&participants[i].activities[j].date), dayOfWeek);
+				printf("%5s %3s", "run", dayOfWeek);
+			}
+			else if (participants[i].activities[j].activityType == 'b') {
+				convertDayToDayOfWeek(zeller(&participants[i].activities[j].date), dayOfWeek);
+				printf("%5s %3s", "bike", dayOfWeek);
+			}
+
+			dayOfWeek[0] = '\0'; //reset the value of dayOfWeek
+
+			puts("");
+		} while (participants[i].activities[j++].activityType != '\0');
+
+	}
+}
+
 //find participant
 int findParticipant(const struct Participant participants[], const int count, const char name[MAX_ACTIVITY_NAME_LEN]) {
 	int i;

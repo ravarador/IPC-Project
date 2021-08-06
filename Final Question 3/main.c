@@ -6,14 +6,14 @@
 
 int main() {
 	struct Participant participants[MAX_PARTICIPANTS] = { { 0 } };
-	int count;
+	int participantCount;
 	FILE* fp = NULL;
 	fp = fopen(FILE_NAME, "r");
 	char activities[][MAX_ACTIVITY_NAME_LEN + 1] = { "run", "walk", "swim" };
 	//char activities[MAX_ACTIVITY_NAME_LEN + 1];
 
 	if (fp != NULL) {
-		printf("Read %d participants \n\n", count = readActivityFile(fp, participants, activities));
+		printf("Read %d participants \n\n", participantCount = readActivityFile(fp, participants, activities));
 
 		fclose(fp);
 	}
@@ -31,36 +31,37 @@ int main() {
 
 		case 1:
 			//list all participants and events
+			displayAllParticipantsWithEvents(participants, participantCount);
 			break;
 
 		case 2:
 			//list total run distances
-			displayTotalDistance(participants, count, "RUNS");
+			displayTotalDistance(participants, participantCount, "RUNS");
 			break;
 
 		case 3:
 			//list total swim distances
-			displayTotalDistance(participants, count, "SWIMS");
+			displayTotalDistance(participants, participantCount, "SWIMS");
 			break;
 
 		case 4:
 			//list total bike distances
-			displayTotalDistance(participants, count, "BIKES");
+			displayTotalDistance(participants, participantCount, "BIKES");
 			break;
 
 		case 5:
 			//list best run distances
-			displayBestDistance(participants, count, "RUNS");
+			displayBestDistance(participants, participantCount, "RUNS");
 			break;
 
 		case 6:
 			//list best swim distances
-			displayBestDistance(participants, count, "SWIMS");
+			displayBestDistance(participants, participantCount, "SWIMS");
 			break;
 
 		case 7:
 			//list best bike distances
-			displayBestDistance(participants, count, "BIKES");
+			displayBestDistance(participants, participantCount, "BIKES");
 			break;
 
 		default:

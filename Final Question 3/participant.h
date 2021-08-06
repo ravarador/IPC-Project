@@ -31,6 +31,7 @@ struct Participant {
 };
 
 //lists all participants and events
+void displayAllParticipantsWithEvents(const struct Participant participants[], const int numberOfParticipants);
 
 //find participant
 int findParticipant(const struct Participant participants[], const int count, const char name[MAX_ACTIVITY_NAME_LEN]);
