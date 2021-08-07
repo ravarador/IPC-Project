@@ -1,8 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "participant.h"
-#include "struct_helper.h"
-#include "date.h"
 
 //lists all participants and events
 void displayAllParticipantsWithEvents(const struct Participant participants[], const int numberOfParticipants) {

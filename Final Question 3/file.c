@@ -1,7 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
-
 #include "file.h"
-#include "date.h"
 
 int readActivityFile(FILE* fp, struct Participant participants[], const char activNames[][MAX_ACTIVITY_NAME_LEN + 1])
 {

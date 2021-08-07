@@ -1,16 +1,17 @@
 #ifndef _PARTICIPANT_H
 #define _PARTICIPANT_H
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <ctype.h>
-
 #define MAX_ACTIVITY_NAME_LEN 4
 #define NUM_ACTIVITY_NAMES 14
 #define MAX_NAME_LEN 20
 #define MAX_PARTICIPANTS 9
 #define MAX_ACTIVITIES 10
+
+#include <stdio.h>
+#include <ctype.h>
+
+#include "struct_helper.h"
+#include "date.h"
 
 struct Date {
 	int year;
