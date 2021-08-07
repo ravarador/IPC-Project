@@ -19,13 +19,13 @@ void displayAllParticipantsWithEvents(const struct Participant participants[], c
 			convertMonthValueToMMM(participants[i].activities[j].date.month, monthInMMM);
 
 			if (participants[i].activities[j].activityType == 's') {
-				printf("%5s %3s %3s", "swim", dayOfWeek, monthInMMM);
+				printf("%5s %3s %3s %02d %5.1lf", "swim", dayOfWeek, monthInMMM, participants[i].activities[j].date.day, participants[i].activities[j].distance);
 			}
 			else if (participants[i].activities[j].activityType == 'r') {
-				printf("%5s %3s %3s", "run", dayOfWeek, monthInMMM);
+				printf("%5s %3s %3s %02d %5.1lf", "run", dayOfWeek, monthInMMM, participants[i].activities[j].date.day, participants[i].activities[j].distance);
 			}
 			else if (participants[i].activities[j].activityType == 'b') {
-				printf("%5s %3s %3s", "bike", dayOfWeek, monthInMMM);
+				printf("%5s %3s %3s %02d %5.1lf", "bike", dayOfWeek, monthInMMM, participants[i].activities[j].date.day, participants[i].activities[j].distance);
 			}
 
 			dayOfWeek[0] = '\0'; //reset the value of dayOfWeek
