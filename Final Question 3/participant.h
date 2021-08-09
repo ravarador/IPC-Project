@@ -1,3 +1,21 @@
+/*
+    IPC144-NBB Take Home Test - Final Question 3
+    Member 1:
+    Jexequiel Ravni Arador
+    127168219
+    jrarador@myseneca.ca
+
+    Member 2:
+    Patel Aditya Dharmesh
+    143595205
+    adpatel31@myseneca.ca
+
+    Member 3:
+    Rishita Rajendrakumar Patel
+    141921205
+    rrpatel42@myseneca.ca
+*/
+
 #ifndef _PARTICIPANT_H
 #define _PARTICIPANT_H
 
@@ -5,7 +23,6 @@
 #define NUM_ACTIVITY_NAMES 14
 #define MAX_NAME_LEN 20
 #define MAX_PARTICIPANTS 9
-#define MAX_ACTIVITIES 10
 
 #include <stdio.h>
 #include <ctype.h>
@@ -21,7 +38,7 @@ struct Date {
 
 struct Activity {
 	struct Date date;
-	char activityType; //TODO CHANGE ALL ACTIVITYTYPE IMPLEMENTATION TO CHAR
+	char activityType;
 	double distance;
 };
 
@@ -31,10 +48,8 @@ struct Participant {
 	int numActivities;
 };
 
-//lists all participants and events
 void displayAllParticipantsWithEvents(const struct Participant participants[], const int numberOfParticipants);
 
-//find participant
 int findParticipant(const struct Participant participants[], const int count, const char name[MAX_ACTIVITY_NAME_LEN]);
 
 double getTotalOfParticipant(const struct Participant participants[], const char name[], const char activityType);
