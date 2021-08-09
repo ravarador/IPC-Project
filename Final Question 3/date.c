@@ -35,8 +35,8 @@ void convertDayToDayOfWeek(int day, char* dayOfWeek) {
 }
 
 void convertMonthValueToMMM(int month, char* monthInMMM) {
-    char months[14][4] = {
-        "", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "July", "Aug", "Sep", "Oct", "Nov", "Dec"
+    char months[13][4] = {
+        "", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
     };
 
     strcpy(monthInMMM, months[month]);

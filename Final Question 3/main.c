@@ -9,8 +9,7 @@ int main() {
 	int participantCount;
 	FILE* fp = NULL;
 	fp = fopen(FILE_NAME, "r");
-	char activities[][MAX_ACTIVITY_NAME_LEN + 1] = { "run", "walk", "swim" };
-	//char activities[MAX_ACTIVITY_NAME_LEN + 1];
+	char activities[][MAX_ACTIVITY_NAME_LEN + 1] = { "run", "bike", "swim" };
 
 	if (fp != NULL) {
 		printf("Read %d participants \n\n", participantCount = readActivityFile(fp, participants, activities));

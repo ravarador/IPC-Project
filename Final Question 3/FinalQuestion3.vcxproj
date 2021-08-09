@@ -150,6 +150,7 @@
     <ClCompile Include="struct_helper.c" />
     <ClCompile Include="menu.c" />
     <ClCompile Include="integer_helper.c" />
+    <ClCompile Include="string_helper.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="date.h" />
@@ -157,7 +158,7 @@
     <ClInclude Include="participant.h" />
     <ClInclude Include="struct_helper.h" />
     <ClInclude Include="menu.h" />
-    <ClInclude Include="integer_helper.h" />
+    <ClInclude Include="string_helper.h" />
   </ItemGroup>
   <ItemGroup></ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
