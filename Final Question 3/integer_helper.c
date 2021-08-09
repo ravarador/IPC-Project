@@ -20,11 +20,16 @@
 
 #include "integer_helper.h"
 
+// Clears buffer
 void clearKeyboard(void)
 {
     while (getchar() != '\n');
 }
 
+/*
+    Asks for integer value, if not integer, 
+    display validation message then ask again
+*/
 int getInt(void) {
     char NL = 'X';
     int intValue = 0;
@@ -48,6 +53,12 @@ int getInt(void) {
     return 0;
 };
 
+/*
+    Asks for integer value, if not integer,
+    display validation message then ask again
+    Also validates if within range, if not within range,
+    display validation message then ask again
+*/
 int getIntInRange(int min, int max) {
     int isValidated = 0;
     do {
@@ -63,7 +74,10 @@ int getIntInRange(int min, int max) {
     return 0;
 };
 
-
+/*
+    Asks for integer value, validates if positive integer, if not,
+    display CUSTOM validation message then ask again
+*/
 int getIntPositive(char* err) {
     int num = getInt();
 

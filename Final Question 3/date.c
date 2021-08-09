@@ -20,6 +20,11 @@
 
 #include "date.h"
 
+/*
+    Get year, month, day values to compute for day of the week value
+    0 - Saturday, 1 - Sunday, 2 - Monday, etc..
+    Returns the computed day of the week value
+*/
 int zeller(const struct Date* date)
 {
       int month = date->month;
@@ -44,18 +49,28 @@ int zeller(const struct Date* date)
       return result;
 }
 
+/*
+    Receives day of the week (day) value and a char array pointer address
+    Gets the textual equivalent by using the day value as index to map the days array
+    Stores the textual equivalent to the passed address
+*/
 void convertDayToDayOfWeek(int day, char* dayOfWeek) {
     char days[9][4] = {
         "Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"
     };
 
-    strcpy(dayOfWeek, days[day]);
+    strcpy(dayOfWeek, days[day]); // stores days[day] value to dayOfWeek
 }
 
+/*
+    Receives month value and a char array pointer address
+    Gets the textual equivalent by using the month value as index to map the months array
+    Stores the textual equivalent to the passed address
+*/
 void convertMonthValueToMMM(int month, char* monthInMMM) {
     char months[13][4] = {
         "", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
     };
 
-    strcpy(monthInMMM, months[month]);
+    strcpy(monthInMMM, months[month]); // stores months[month] to monthsInMMM
 }

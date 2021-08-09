@@ -19,6 +19,11 @@
 #include "integer_helper.h"
 #include "menu.h"
 
+/*
+    Display menu with range of 0-7
+    Asks user to choose from 0-7, if outside range,
+    display validation message then ask again
+*/
 int menu() {
 	int choice;
 

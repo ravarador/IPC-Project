@@ -20,7 +20,6 @@
 
 #include "participant.h"
 
-//lists all participants and events
 void displayAllParticipantsWithEvents(const struct Participant participants[], const int numberOfParticipants) {
 	int i, j;
 	char dayOfWeek[4];
@@ -31,8 +30,8 @@ void displayAllParticipantsWithEvents(const struct Participant participants[], c
 
 		j = 0;
 		do {
-			convertDayToDayOfWeek(zeller(&participants[i].activities[j].date), dayOfWeek);
-			convertMonthValueToMMM(participants[i].activities[j].date.month, monthInMMM);
+			convertDayToDayOfWeek(zeller(&participants[i].activities[j].date), dayOfWeek); // get day of the week value, store in dayOfWeek string
+			convertMonthValueToMMM(participants[i].activities[j].date.month, monthInMMM);  // get month in MMM format, store in monthInMMM string
 
 			if (participants[i].activities[j].activityType == 's') {
 				printf("%5s %3s %3s %02d %5.1lf", "swim", dayOfWeek, monthInMMM, participants[i].activities[j].date.day, participants[i].activities[j].distance);
@@ -52,7 +51,6 @@ void displayAllParticipantsWithEvents(const struct Participant participants[], c
 	}
 }
 
-//find participant
 int findParticipant(const struct Participant participants[], const int count, const char name[MAX_ACTIVITY_NAME_LEN]) {
 	int i;
 	for (i = 0; i < count; i++) {

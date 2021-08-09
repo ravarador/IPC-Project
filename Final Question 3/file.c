@@ -21,6 +21,9 @@
 #include "file.h"
 #include "string_helper.h"
 
+/*
+	Reads the file then store it into participant struct
+*/
 int readActivityFile(FILE* fp, struct Participant participants[], const char activNames[][MAX_ACTIVITY_NAME_LEN + 1])
 {
 	  int count = 0, ch, addPosn, actPosn;
@@ -29,7 +32,7 @@ int readActivityFile(FILE* fp, struct Participant participants[], const char act
 	  int year=0, month=0, day=0;
 	  double dist=0.0;
 
-	  while (!feof(fp))
+	  while (!feof(fp)) // Checks if end of file, if no, store file data to participant struct
 	  {
 			fscanf(fp, "%[^~]s%*c", name);
 			ch = fgetc(fp);
